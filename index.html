@@ -317,6 +317,20 @@
         .question {
             margin-bottom: 3rem;
             counter-increment: question-counter;
+            transition: all 0.3s ease;
+        }
+
+        .question.unanswered {
+            padding: 1.5rem;
+            background: rgba(239, 68, 68, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid #EF4444;
+            margin-left: -1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .question.unanswered .question-label {
+            color: #DC2626;
         }
 
         .question-label {
@@ -431,6 +445,35 @@
             justify-content: space-between;
             margin-top: 3rem;
             gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-buttons .btn {
+            flex: 0 0 auto;
+        }
+
+        .validation-error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid #EF4444;
+            border-radius: 8px;
+            padding: 1rem;
+            color: #DC2626;
+            font-weight: 600;
+            display: none;
+            animation: shake 0.4s ease;
+            flex: 0 0 100%;
+            text-align: center;
+            order: -1;
+        }
+
+        .validation-error.visible {
+            display: block;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
         }
 
         /* Email Form */
@@ -1311,6 +1354,9 @@
 
         <!-- Navigation -->
         <div class="nav-buttons hidden" id="navButtons">
+            <div class="validation-error" id="validationError">
+                Please answer all questions before continuing
+            </div>
             <button class="btn btn-secondary" id="prevBtn" onclick="previousSection()">Previous</button>
             <button class="btn" id="nextBtn" onclick="nextSection()">Next Section</button>
         </div>
@@ -1376,15 +1422,66 @@
         }
 
         function previousSection() {
+            // Hide error when going back
+            document.getElementById('validationError').classList.remove('visible');
+            
             if (currentSection > 0) showSection(currentSection - 1);
         }
 
         function nextSection() {
+            // Hide any previous error
+            document.getElementById('validationError').classList.remove('visible');
+            
+            // Validate current section
+            if (!validateCurrentSection()) {
+                // Show error and don't proceed
+                document.getElementById('validationError').classList.add('visible');
+                // Scroll to error
+                document.getElementById('validationError').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
             if (currentSection < totalSections - 1) {
                 showSection(currentSection + 1);
             } else {
                 completeAssessment();
             }
+        }
+
+        function validateCurrentSection() {
+            const section = document.getElementById(`section${currentSection}`);
+            
+            // Remove any previous highlighting
+            section.querySelectorAll('.question').forEach(q => q.classList.remove('unanswered'));
+            
+            // Get all radio button groups in this section
+            const radioGroups = {};
+            const radioQuestions = {};
+            
+            section.querySelectorAll('input[type="radio"]').forEach(radio => {
+                const questionDiv = radio.closest('.question');
+                if (!radioGroups[radio.name]) {
+                    radioGroups[radio.name] = false;
+                    radioQuestions[radio.name] = questionDiv;
+                }
+                if (radio.checked) {
+                    radioGroups[radio.name] = true;
+                }
+            });
+            
+            // Check if all radio groups have a selection
+            let allValid = true;
+            for (const groupName in radioGroups) {
+                if (!radioGroups[groupName]) {
+                    allValid = false;
+                    // Highlight the unanswered question
+                    if (radioQuestions[groupName]) {
+                        radioQuestions[groupName].classList.add('unanswered');
+                    }
+                }
+            }
+            
+            return allValid;
         }
 
         function completeAssessment() {
@@ -1414,7 +1511,14 @@
             document.querySelectorAll(`input[name="${input.name}"]`).forEach(r => {
                 r.closest('.option').classList.remove('selected');
             });
-            if (input.checked) input.closest('.option').classList.add('selected');
+            if (input.checked) {
+                input.closest('.option').classList.add('selected');
+                // Remove unanswered highlighting from this question
+                input.closest('.question').classList.remove('unanswered');
+            }
+            
+            // Hide validation error when user answers a question
+            document.getElementById('validationError').classList.remove('visible');
         }
 
         function calculateAndShowResults() {
