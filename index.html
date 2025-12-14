@@ -375,7 +375,8 @@
             background: rgba(124, 58, 237, 0.03);
         }
 
-        .option input[type="radio"] {
+        .option input[type="radio"],
+        .option input[type="checkbox"] {
             margin-right: 1rem;
             width: 20px;
             height: 20px;
@@ -968,6 +969,48 @@
                         <label class="option"><input type="radio" name="q0_5" value="small-town" onchange="updateOptionStyle(this)"><span>Small town or rural</span></label>
                     </div>
                 </div>
+
+                <div class="question">
+                    <label class="question-label">What is your firm's approximate annual revenue?</label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q0_6" value="under-250k" onchange="updateOptionStyle(this)"><span>Under $250K</span></label>
+                        <label class="option"><input type="radio" name="q0_6" value="250k-500k" onchange="updateOptionStyle(this)"><span>$250K - $500K</span></label>
+                        <label class="option"><input type="radio" name="q0_6" value="500k-1m" onchange="updateOptionStyle(this)"><span>$500K - $1M</span></label>
+                        <label class="option"><input type="radio" name="q0_6" value="1m-2m" onchange="updateOptionStyle(this)"><span>$1M - $2M</span></label>
+                        <label class="option"><input type="radio" name="q0_6" value="2m-5m" onchange="updateOptionStyle(this)"><span>$2M - $5M</span></label>
+                        <label class="option"><input type="radio" name="q0_6" value="5m-plus" onchange="updateOptionStyle(this)"><span>$5M+</span></label>
+                        <label class="option"><input type="radio" name="q0_6" value="prefer-not" onchange="updateOptionStyle(this)"><span>Prefer not to say</span></label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">What's your biggest marketing challenge right now?</label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q0_7" value="lack-leads" onchange="updateOptionStyle(this)"><span>Not enough leads</span></label>
+                        <label class="option"><input type="radio" name="q0_7" value="bad-nurture" onchange="updateOptionStyle(this)"><span>Poor lead nurturing</span></label>
+                        <label class="option"><input type="radio" name="q0_7" value="poor-followup" onchange="updateOptionStyle(this)"><span>Losing leads to poor follow-up</span></label>
+                        <label class="option"><input type="radio" name="q0_7" value="poor-retention" onchange="updateOptionStyle(this)"><span>Poor client retention and repeat business</span></label>
+                        <label class="option"><input type="radio" name="q0_7" value="competition" onchange="updateOptionStyle(this)"><span>Struggling against aggressive competitors</span></label>
+                        <label class="option"><input type="radio" name="q0_7" value="other" onchange="updateOptionStyle(this)"><span>Other / Not sure</span></label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Which marketing activities are you currently doing?</label>
+                    <p class="question-help">Select all that apply</p>
+                    <div class="options">
+                        <label class="option"><input type="checkbox" name="q0_8_content" onchange="updateCheckboxStyle(this)"><span>Content marketing (blog, articles, videos)</span></label>
+                        <label class="option"><input type="checkbox" name="q0_8_events" onchange="updateCheckboxStyle(this)"><span>Events and networking</span></label>
+                        <label class="option"><input type="checkbox" name="q0_8_paid-social" onchange="updateCheckboxStyle(this)"><span>Paid social media ads</span></label>
+                        <label class="option"><input type="checkbox" name="q0_8_paid-google" onchange="updateCheckboxStyle(this)"><span>Paid Google/search ads</span></label>
+                        <label class="option"><input type="checkbox" name="q0_8_direct-mail" onchange="updateCheckboxStyle(this)"><span>Direct mail</span></label>
+                        <label class="option"><input type="checkbox" name="q0_8_ooh" onchange="updateCheckboxStyle(this)"><span>Out-of-home (billboards, transit ads)</span></label>
+                        <label class="option"><input type="checkbox" name="q0_8_organic-social" onchange="updateCheckboxStyle(this)"><span>Organic social media</span></label>
+                        <label class="option"><input type="checkbox" name="q0_8_pr" onchange="updateCheckboxStyle(this)"><span>PR and media relations</span></label>
+                        <label class="option"><input type="checkbox" name="q0_8_partnerships" onchange="updateCheckboxStyle(this)"><span>Partnerships and listings</span></label>
+                        <label class="option"><input type="checkbox" name="q0_8_none" onchange="updateCheckboxStyle(this)"><span>None of the above</span></label>
+                    </div>
+                </div>
             </div>
             <!-- Section 1: Brand Awareness & Positioning (15 points) -->
             <div class="section" id="section1">
@@ -1339,8 +1382,11 @@
 
             <div class="cta-section">
                 <h3>Ready to Accelerate Your Growth?</h3>
-                <p>Get weekly strategies, insights from successful attorneys, and actionable tactics delivered to your inbox.</p>
-                <button class="btn btn-light" onclick="window.location.href='https://pioneerly.com/newsletter'">Subscribe to The Case for Growth</button>
+                <p>Join growth-focused attorneys getting weekly strategies, insights, and actionable tactics to build systematically scalable practices.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                    <button class="btn btn-light" onclick="window.location.href='https://pioneerly.com/newsletter'">Subscribe to Pioneerly</button>
+                    <button class="btn btn-light" onclick="window.location.href='https://pioneerly.com/contact'">Book a Consultation</button>
+                </div>
             </div>
 
             <div class="download-section">
@@ -1511,6 +1557,25 @@
                 });
             });
         });
+
+        function updateCheckboxStyle(input) {
+            if (input.checked) {
+                input.closest('.option').classList.add('selected');
+            } else {
+                input.closest('.option').classList.remove('selected');
+            }
+            
+            // Remove unanswered highlighting from this question
+            input.closest('.question').classList.remove('unanswered');
+            
+            // Hide validation error when user answers a question
+            document.getElementById('validationError').classList.remove('visible');
+            
+            // Auto-scroll to next question after a brief delay (only if checking, not unchecking)
+            if (input.checked) {
+                scrollToNextQuestion(input);
+            }
+        }
 
         function updateOptionStyle(input) {
             document.querySelectorAll(`input[name="${input.name}"]`).forEach(r => {
