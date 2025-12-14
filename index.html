@@ -48,12 +48,6 @@
             line-height: 1.2;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
         /* Hero Section */
         .hero {
             text-align: center;
@@ -61,10 +55,6 @@
             background: #F8FAFC;
             color: var(--text-dark);
             position: relative;
-            overflow: hidden;
-            border-bottom: 3px solid transparent;
-            border-image: var(--gradient-vibrant) 1;
-            border-image-slice: 1;
         }
 
         .hero::after {
@@ -109,10 +99,6 @@
             flex-wrap: wrap;
         }
 
-        .stat {
-            text-align: center;
-        }
-
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
@@ -130,7 +116,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* Assessment Container */
+        /* Assessment Card */
         .assessment-card {
             background: var(--bg-white);
             border-radius: 12px;
@@ -196,6 +182,7 @@
             color: var(--text-medium);
         }
 
+        /* Buttons */
         .btn {
             background: var(--gradient-vibrant);
             color: white;
@@ -218,6 +205,29 @@
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gradient-vibrant);
+            color: white;
+            border-color: transparent;
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-light:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
         /* Progress Bar */
@@ -246,7 +256,7 @@
             text-align: right;
         }
 
-        /* Question Sections */
+        /* Sections */
         .section {
             display: none;
             animation: fadeIn 0.4s ease;
@@ -257,14 +267,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .section-header {
@@ -284,6 +288,7 @@
             font-size: 1rem;
         }
 
+        /* Questions */
         .question {
             margin-bottom: 3rem;
         }
@@ -303,7 +308,6 @@
             font-style: italic;
         }
 
-        /* Radio and Checkbox Groups */
         .options {
             display: flex;
             flex-direction: column;
@@ -325,8 +329,7 @@
             background: rgba(124, 58, 237, 0.03);
         }
 
-        .option input[type="radio"],
-        .option input[type="checkbox"] {
+        .option input[type="radio"] {
             margin-right: 1rem;
             width: 20px;
             height: 20px;
@@ -336,7 +339,7 @@
 
         .option.selected {
             border-color: var(--primary);
-            background: rgba(26, 77, 46, 0.05);
+            background: rgba(124, 58, 237, 0.05);
         }
 
         /* Range Input */
@@ -355,7 +358,6 @@
 
         .range-input::-webkit-slider-thumb {
             -webkit-appearance: none;
-            appearance: none;
             width: 24px;
             height: 24px;
             background: var(--primary);
@@ -391,41 +393,7 @@
             font-size: 1.125rem;
         }
 
-        /* Number Input */
-        .input-group {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .input-with-suffix {
-            display: flex;
-            align-items: center;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            flex: 1;
-            max-width: 300px;
-        }
-
-        .input-with-suffix input {
-            border: none;
-            padding: 0.75rem 1rem;
-            font-size: 1rem;
-            font-family: 'DM Sans', sans-serif;
-            flex: 1;
-            outline: none;
-        }
-
-        .input-suffix {
-            padding: 0.75rem 1rem;
-            background: var(--bg-light);
-            color: var(--text-medium);
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        /* Navigation Buttons */
+        /* Navigation */
         .nav-buttons {
             display: flex;
             justify-content: space-between;
@@ -433,20 +401,7 @@
             gap: 1rem;
         }
 
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            border-radius: 50px;
-        }
-
-        .btn-secondary:hover {
-            background: var(--gradient-vibrant);
-            color: white;
-            border-color: transparent;
-        }
-
-        /* Email Capture */
+        /* Email Form */
         .email-section {
             text-align: center;
             padding: 2rem;
@@ -475,15 +430,13 @@
             color: var(--text-dark);
         }
 
-        .form-group input[type="email"],
-        .form-group input[type="text"] {
+        .form-group input {
             width: 100%;
             padding: 0.875rem;
             border: 2px solid var(--border);
             border-radius: 8px;
             font-size: 1rem;
             font-family: 'DM Sans', sans-serif;
-            transition: border-color 0.2s;
         }
 
         .form-group input:focus {
@@ -491,7 +444,7 @@
             border-color: var(--primary);
         }
 
-        /* Results Section */
+        /* Results */
         .results-section {
             display: none;
         }
@@ -504,12 +457,6 @@
         .results-header {
             text-align: center;
             margin-bottom: 3rem;
-        }
-
-        .results-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
         }
 
         .stage-badge {
@@ -547,7 +494,6 @@
             color: var(--text-medium);
         }
 
-        /* Dimension Scores */
         .dimensions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -563,33 +509,20 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        .dimension-card.excellent {
-            border-left-color: #10B981;
-        }
-
-        .dimension-card.strong {
-            border-left-color: #8B5CF6;
-        }
-
-        .dimension-card.developing {
-            border-left-color: #F59E0B;
-        }
-
-        .dimension-card.needs-attention {
-            border-left-color: #EF4444;
-        }
+        .dimension-card.excellent { border-left-color: #10B981; }
+        .dimension-card.strong { border-left-color: #8B5CF6; }
+        .dimension-card.developing { border-left-color: #F59E0B; }
+        .dimension-card.needs-attention { border-left-color: #EF4444; }
 
         .dimension-header {
             display: flex;
             justify-content: space-between;
-            align-items: start;
             margin-bottom: 1rem;
         }
 
         .dimension-name {
             font-weight: 600;
             font-size: 1.0625rem;
-            color: var(--text-dark);
         }
 
         .dimension-score {
@@ -609,25 +542,10 @@
             margin-bottom: 0.5rem;
         }
 
-        .dimension-status.excellent {
-            background: rgba(16, 185, 129, 0.1);
-            color: #059669;
-        }
-
-        .dimension-status.strong {
-            background: rgba(139, 92, 246, 0.1);
-            color: #7C3AED;
-        }
-
-        .dimension-status.developing {
-            background: rgba(245, 158, 11, 0.1);
-            color: #D97706;
-        }
-
-        .dimension-status.needs-attention {
-            background: rgba(239, 68, 68, 0.1);
-            color: #DC2626;
-        }
+        .dimension-status.excellent { background: rgba(16, 185, 129, 0.1); color: #059669; }
+        .dimension-status.strong { background: rgba(139, 92, 246, 0.1); color: #7C3AED; }
+        .dimension-status.developing { background: rgba(245, 158, 11, 0.1); color: #D97706; }
+        .dimension-status.needs-attention { background: rgba(239, 68, 68, 0.1); color: #DC2626; }
 
         .dimension-action {
             font-size: 0.9375rem;
@@ -635,7 +553,6 @@
             line-height: 1.6;
         }
 
-        /* Priority Actions */
         .priorities-section {
             background: white;
             padding: 2.5rem;
@@ -687,18 +604,12 @@
             margin-left: 52px;
         }
 
-        .priority-why,
-        .priority-action {
-            margin-bottom: 0.75rem;
-        }
-
         .priority-label {
             font-weight: 600;
             color: var(--text-dark);
             margin-right: 0.5rem;
         }
 
-        /* CTA Section */
         .cta-section {
             background: var(--gradient-subtle);
             color: white;
@@ -716,73 +627,38 @@
         .cta-section p {
             font-size: 1.125rem;
             margin-bottom: 1.5rem;
-            opacity: 0.95;
         }
 
-        .btn-light {
-            background: white;
-            color: var(--primary);
-        }
-
-        .btn-light:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-
-        /* Download Button */
         .download-section {
             text-align: center;
             margin: 2rem 0;
         }
 
-        /* Hidden class */
         .hidden {
             display: none !important;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-logo {
-                width: 150px;
-            }
-
-            .hero-stats {
-                gap: 2rem;
-            }
-
+            .hero h1 { font-size: 2.5rem; }
+            .hero-logo { width: 150px; }
+            .hero-stats { gap: 2rem; }
             .assessment-card {
                 padding: 2rem 1.5rem;
                 margin: -3rem 1rem 2rem;
             }
-
-            .section-title {
-                font-size: 1.75rem;
-            }
-
-            .nav-buttons {
-                flex-direction: column;
-            }
-
-            .dimensions-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .overall-score {
-                font-size: 3rem;
-            }
+            .section-title { font-size: 1.75rem; }
+            .nav-buttons { flex-direction: column; }
+            .dimensions-grid { grid-template-columns: 1fr; }
+            .overall-score { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
+    <!-- Hero -->
     <div class="hero" id="hero">
         <div class="hero-content">
-            <svg class="hero-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 370 104">
+            <svg class="hero-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 104">
                 <g transform="scale(1) translate(10, 10)">
                     <g transform="matrix(4.051863270458994,0,0,4.051863270458994,-7.293353693618292,-18.7196078458216)" fill="#000">
                         <path d="M12.92 10.52 c0 3.04 -2.36 5.5 -5.28 5.52 l-3.6 0 l0 3.96 l-2.24 0 l0 -15 l5.84 0 c2.92 0.02 5.28 2.48 5.28 5.52 z M7.6 14.2 c1.72 0 3.1 -1.66 3.1 -3.68 s-1.38 -3.68 -3.1 -3.68 l-3.56 0 l0 7.36 l3.56 0 z M17.68 10.12 l0 9.88 l-2.06 0 l0 -9.88 l2.06 0 z M17.78 6.5 c0 0.64 -0.5 1.14 -1.14 1.14 c-0.62 0 -1.12 -0.5 -1.12 -1.14 c0 -0.62 0.5 -1.12 1.12 -1.12 c0.64 0 1.14 0.5 1.14 1.12 z M25.320000000000004 11.64 c-1.7 0 -3.08 1.42 -3.08 3.44 c0 2 1.38 3.44 3.08 3.44 s3.08 -1.44 3.08 -3.44 c0 -2.02 -1.38 -3.44 -3.08 -3.44 z M25.320000000000004 9.94 c2.84 0 5.14 2.2 5.14 5.14 s-2.3 5.12 -5.14 5.12 s-5.14 -2.18 -5.14 -5.12 s2.3 -5.14 5.14 -5.14 z M41.8 14.3 l0 5.7 l-2.06 0 l0 -5.5 c0 -2 -0.62 -2.88 -2.32 -2.88 c-1.92 0 -2.7 1.34 -2.7 3.08 l0 5.3 l-2.06 0 l0 -9.88 l2.06 0 l0 1.6 c0.28 -0.88 1.52 -1.68 2.7 -1.76 c2.68 -0.2 4.38 1.1 4.38 4.34 z M53.86 15.08 l0 0.74 l-7.78 0 c0 1.82 1.74 2.7 3.02 2.7 c0.94 0 1.98 -0.5 2.54 -1.3 l1.42 1.28 c-0.66 0.9 -1.74 1.7 -3.96 1.7 c-3.2 0 -5.16 -2.18 -5.16 -5.12 s1.9 -5.14 4.96 -5.14 s4.46 1.7 4.88 4.18 c0.06 0.32 0.08 0.64 0.08 0.96 z M46.120000000000005 14.120000000000001 l5.58 0 c0 -1.6 -1.28 -2.48 -2.8 -2.48 s-2.78 1.02 -2.78 2.48 z M65.18 15.08 l0 0.74 l-7.78 0 c0 1.82 1.74 2.7 3.02 2.7 c0.94 0 1.98 -0.5 2.54 -1.3 l1.42 1.28 c-0.66 0.9 -1.74 1.7 -3.96 1.7 c-3.2 0 -5.16 -2.18 -5.16 -5.12 s1.9 -5.14 4.96 -5.14 s4.46 1.7 4.88 4.18 c0.06 0.32 0.08 0.64 0.08 0.96 z M57.440000000000005 14.120000000000001 l5.58 0 c0 -1.6 -1.28 -2.48 -2.8 -2.48 s-2.78 1.02 -2.78 2.48 z M73.12 10.24 l-0.44 1.62 c-0.14 -0.08 -0.58 -0.22 -0.94 -0.22 c-1.7 0 -2.5 1.62 -2.5 3.62 l0 4.74 l-2.06 0 l0 -9.88 l2.06 0 l0 1.4 c0.24 -0.92 1.3 -1.58 2.48 -1.58 c0.54 0 1.12 0.14 1.4 0.3 z M76.60000000000001 4.619999999999999 l0 15.38 l-2.08 0 l0 -15.38 l2.08 0 z M88.18 10.12 c0 0 -2.5 5.92 -4.16 9.88 c-1.4 3.32 -2.5 5.32 -4.36 5.32 c-0.58 0 -1.32 -0.28 -1.86 -0.6 l0.62 -1.8 c0.16 0.14 0.52 0.34 0.76 0.4 c1.54 0.44 2.5 -2.78 3.16 -4.36 l-3.74 -8.84 l2.08 0 l2.72 6.48 l2.7 -6.48 l2.08 0 z"/>
@@ -793,11 +669,11 @@
             <p>Discover where your law firm stands and get a personalized roadmap for systematic growth</p>
             <div class="hero-stats">
                 <div class="stat">
-                    <div class="stat-number">10 min</div>
+                    <div class="stat-number">8 min</div>
                     <div class="stat-label">To Complete</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">8</div>
+                    <div class="stat-number">6</div>
                     <div class="stat-label">Key Dimensions</div>
                 </div>
                 <div class="stat">
@@ -808,13 +684,12 @@
         </div>
     </div>
 
-    <!-- Main Assessment Card -->
+    <!-- Assessment Card -->
     <div class="assessment-card">
-        <!-- Introduction Section -->
+        <!-- Intro -->
         <div id="intro" class="intro-section">
             <h2>What You'll Discover</h2>
-            <p>This assessment evaluates your firm's marketing maturity across 8 critical dimensions to identify your biggest opportunities for growth.</p>
-            
+            <p>This assessment evaluates your firm's marketing maturity across 6 critical dimensions to identify your biggest opportunities for growth.</p>
             <div class="benefits">
                 <div class="benefit">
                     <div class="benefit-icon">✓</div>
@@ -822,7 +697,7 @@
                 </div>
                 <div class="benefit">
                     <div class="benefit-icon">✓</div>
-                    <div class="benefit-text">Detailed breakdown across 8 key areas</div>
+                    <div class="benefit-text">Detailed breakdown across 6 key areas</div>
                 </div>
                 <div class="benefit">
                     <div class="benefit-icon">✓</div>
@@ -833,19 +708,18 @@
                     <div class="benefit-text">Benchmark against similar firms</div>
                 </div>
             </div>
-
             <button class="btn" onclick="startAssessment()">Start Assessment</button>
         </div>
 
-        <!-- Progress Bar (hidden initially) -->
+        <!-- Progress -->
         <div id="progress" class="progress-container hidden">
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill" style="width: 0%"></div>
             </div>
-            <div class="progress-text"><span id="currentSection">1</span> of 8 sections</div>
+            <div class="progress-text"><span id="currentSection">1</span> of 7 sections</div>
         </div>
 
-        <!-- Assessment Sections -->
+        <!-- Sections -->
         <div id="assessmentForm">
             <!-- Section 0: Firm Profile -->
             <div class="section" id="section0">
@@ -857,64 +731,25 @@
                 <div class="question">
                     <label class="question-label">What is your primary practice area?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q0_1" value="personal-injury" onchange="updateOptionStyle(this)">
-                            <span>Personal Injury</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_1" value="family-law" onchange="updateOptionStyle(this)">
-                            <span>Family Law</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_1" value="corporate" onchange="updateOptionStyle(this)">
-                            <span>Corporate/Business Law</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_1" value="criminal" onchange="updateOptionStyle(this)">
-                            <span>Criminal Defense</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_1" value="estate" onchange="updateOptionStyle(this)">
-                            <span>Estate Planning</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_1" value="real-estate" onchange="updateOptionStyle(this)">
-                            <span>Real Estate</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_1" value="immigration" onchange="updateOptionStyle(this)">
-                            <span>Immigration</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_1" value="other" onchange="updateOptionStyle(this)">
-                            <span>Other</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q0_1" value="personal-injury" onchange="updateOptionStyle(this)"><span>Personal Injury</span></label>
+                        <label class="option"><input type="radio" name="q0_1" value="family-law" onchange="updateOptionStyle(this)"><span>Family Law</span></label>
+                        <label class="option"><input type="radio" name="q0_1" value="corporate" onchange="updateOptionStyle(this)"><span>Corporate/Business Law</span></label>
+                        <label class="option"><input type="radio" name="q0_1" value="criminal" onchange="updateOptionStyle(this)"><span>Criminal Defense</span></label>
+                        <label class="option"><input type="radio" name="q0_1" value="estate" onchange="updateOptionStyle(this)"><span>Estate Planning</span></label>
+                        <label class="option"><input type="radio" name="q0_1" value="real-estate" onchange="updateOptionStyle(this)"><span>Real Estate</span></label>
+                        <label class="option"><input type="radio" name="q0_1" value="immigration" onchange="updateOptionStyle(this)"><span>Immigration</span></label>
+                        <label class="option"><input type="radio" name="q0_1" value="other" onchange="updateOptionStyle(this)"><span>Other</span></label>
                     </div>
                 </div>
 
                 <div class="question">
                     <label class="question-label">How many attorneys work at your firm?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q0_2" value="solo" onchange="updateOptionStyle(this)">
-                            <span>Just me (solo practitioner)</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_2" value="2-5" onchange="updateOptionStyle(this)">
-                            <span>2-5 attorneys</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_2" value="6-10" onchange="updateOptionStyle(this)">
-                            <span>6-10 attorneys</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_2" value="11-25" onchange="updateOptionStyle(this)">
-                            <span>11-25 attorneys</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_2" value="26+" onchange="updateOptionStyle(this)">
-                            <span>26+ attorneys</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q0_2" value="solo" onchange="updateOptionStyle(this)"><span>Just me (solo practitioner)</span></label>
+                        <label class="option"><input type="radio" name="q0_2" value="2-5" onchange="updateOptionStyle(this)"><span>2-5 attorneys</span></label>
+                        <label class="option"><input type="radio" name="q0_2" value="6-10" onchange="updateOptionStyle(this)"><span>6-10 attorneys</span></label>
+                        <label class="option"><input type="radio" name="q0_2" value="11-25" onchange="updateOptionStyle(this)"><span>11-25 attorneys</span></label>
+                        <label class="option"><input type="radio" name="q0_2" value="26+" onchange="updateOptionStyle(this)"><span>26+ attorneys</span></label>
                     </div>
                 </div>
 
@@ -922,48 +757,21 @@
                     <label class="question-label">How many non-attorney staff do you have?</label>
                     <p class="question-help">Paralegals, assistants, administrative staff, etc.</p>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q0_3" value="0" onchange="updateOptionStyle(this)">
-                            <span>None</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_3" value="1-3" onchange="updateOptionStyle(this)">
-                            <span>1-3 staff</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_3" value="4-10" onchange="updateOptionStyle(this)">
-                            <span>4-10 staff</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_3" value="11+" onchange="updateOptionStyle(this)">
-                            <span>11+ staff</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q0_3" value="0" onchange="updateOptionStyle(this)"><span>None</span></label>
+                        <label class="option"><input type="radio" name="q0_3" value="1-3" onchange="updateOptionStyle(this)"><span>1-3 staff</span></label>
+                        <label class="option"><input type="radio" name="q0_3" value="4-10" onchange="updateOptionStyle(this)"><span>4-10 staff</span></label>
+                        <label class="option"><input type="radio" name="q0_3" value="11+" onchange="updateOptionStyle(this)"><span>11+ staff</span></label>
                     </div>
                 </div>
 
                 <div class="question">
                     <label class="question-label">Who currently handles your marketing?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q0_4" value="none" onchange="updateOptionStyle(this)">
-                            <span>No one - we don't have active marketing</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_4" value="partner" onchange="updateOptionStyle(this)">
-                            <span>One of the attorneys handles it</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_4" value="staff" onchange="updateOptionStyle(this)">
-                            <span>Dedicated in-house marketing person</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_4" value="agency" onchange="updateOptionStyle(this)">
-                            <span>External agency or consultant</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_4" value="combination" onchange="updateOptionStyle(this)">
-                            <span>Combination of the above</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q0_4" value="none" onchange="updateOptionStyle(this)"><span>No one - we don't have active marketing</span></label>
+                        <label class="option"><input type="radio" name="q0_4" value="partner" onchange="updateOptionStyle(this)"><span>One of the attorneys handles it</span></label>
+                        <label class="option"><input type="radio" name="q0_4" value="staff" onchange="updateOptionStyle(this)"><span>Dedicated in-house marketing person</span></label>
+                        <label class="option"><input type="radio" name="q0_4" value="agency" onchange="updateOptionStyle(this)"><span>External agency or consultant</span></label>
+                        <label class="option"><input type="radio" name="q0_4" value="combination" onchange="updateOptionStyle(this)"><span>Combination of the above</span></label>
                     </div>
                 </div>
 
@@ -971,27 +779,14 @@
                     <label class="question-label">Where is your firm located?</label>
                     <p class="question-help">Primary office location</p>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q0_5" value="major-metro" onchange="updateOptionStyle(this)">
-                            <span>Major metropolitan area (top 20 US cities)</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_5" value="mid-size" onchange="updateOptionStyle(this)">
-                            <span>Mid-size city</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_5" value="suburban" onchange="updateOptionStyle(this)">
-                            <span>Suburban area</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q0_5" value="small-town" onchange="updateOptionStyle(this)">
-                            <span>Small town or rural</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q0_5" value="major-metro" onchange="updateOptionStyle(this)"><span>Major metropolitan area (top 20 US cities)</span></label>
+                        <label class="option"><input type="radio" name="q0_5" value="mid-size" onchange="updateOptionStyle(this)"><span>Mid-size city</span></label>
+                        <label class="option"><input type="radio" name="q0_5" value="suburban" onchange="updateOptionStyle(this)"><span>Suburban area</span></label>
+                        <label class="option"><input type="radio" name="q0_5" value="small-town" onchange="updateOptionStyle(this)"><span>Small town or rural</span></label>
                     </div>
                 </div>
             </div>
-
-            <!-- Section 1: Brand Awareness & Positioning -->
+            <!-- Section 1: Brand Awareness & Positioning (15 points) -->
             <div class="section" id="section1">
                 <div class="section-header">
                     <h3 class="section-title">Brand Awareness & Positioning</h3>
@@ -1000,7 +795,6 @@
 
                 <div class="question">
                     <label class="question-label">How well-known is your firm among potential clients in your target market?</label>
-                    <p class="question-help">Think about your ideal client who needs legal services in your practice area</p>
                     <div class="range-container">
                         <input type="range" min="1" max="5" value="3" class="range-input" id="q1_1" oninput="updateRangeValue(this)">
                         <div class="range-labels">
@@ -1015,368 +809,152 @@
                 </div>
 
                 <div class="question">
-                    <label class="question-label">Can you clearly articulate what makes your firm different from competitors in one sentence?</label>
+                    <label class="question-label">Can you clearly articulate what makes your firm different from competitors?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q1_2" value="3" onchange="updateOptionStyle(this)">
-                            <span>Yes, and our entire team can articulate it consistently</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1_2" value="2" onchange="updateOptionStyle(this)">
-                            <span>Yes, but it's not consistently communicated</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1_2" value="1" onchange="updateOptionStyle(this)">
-                            <span>We have some ideas but it's not clearly defined</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1_2" value="0" onchange="updateOptionStyle(this)">
-                            <span>No / I don't know</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q1_2" value="3" onchange="updateOptionStyle(this)"><span>Yes, and our entire team can articulate it consistently</span></label>
+                        <label class="option"><input type="radio" name="q1_2" value="2" onchange="updateOptionStyle(this)"><span>Yes, but it's not consistently communicated</span></label>
+                        <label class="option"><input type="radio" name="q1_2" value="1" onchange="updateOptionStyle(this)"><span>We have some ideas but it's not clearly defined</span></label>
+                        <label class="option"><input type="radio" name="q1_2" value="0" onchange="updateOptionStyle(this)"><span>No / I don't know</span></label>
                     </div>
                 </div>
 
                 <div class="question">
                     <label class="question-label">How do potential clients typically discover your firm?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q1_3" value="4" onchange="updateOptionStyle(this)">
-                            <span>Multiple intentional channels working together</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1_3" value="3" onchange="updateOptionStyle(this)">
-                            <span>2-3 channels, somewhat coordinated</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1_3" value="2" onchange="updateOptionStyle(this)">
-                            <span>1-2 channels, not coordinated</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1_3" value="1" onchange="updateOptionStyle(this)">
-                            <span>Almost entirely referrals/word of mouth</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1_3" value="0" onchange="updateOptionStyle(this)">
-                            <span>I don't know</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q1_3" value="4" onchange="updateOptionStyle(this)"><span>Multiple intentional channels working together</span></label>
+                        <label class="option"><input type="radio" name="q1_3" value="3" onchange="updateOptionStyle(this)"><span>2-3 channels, somewhat coordinated</span></label>
+                        <label class="option"><input type="radio" name="q1_3" value="2" onchange="updateOptionStyle(this)"><span>1-2 channels, not coordinated</span></label>
+                        <label class="option"><input type="radio" name="q1_3" value="1" onchange="updateOptionStyle(this)"><span>Almost entirely referrals/word of mouth</span></label>
+                        <label class="option"><input type="radio" name="q1_3" value="0" onchange="updateOptionStyle(this)"><span>I don't know</span></label>
                     </div>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">Do you have documented brand guidelines (voice, visual identity, messaging)?</label>
+                    <label class="question-label">Do you have documented brand guidelines?</label>
+                    <p class="question-help">Voice, visual identity, messaging</p>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q1_4" value="3" onchange="updateOptionStyle(this)">
-                            <span>Yes, comprehensive and actively used</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1_4" value="2" onchange="updateOptionStyle(this)">
-                            <span>Yes, but not consistently applied</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1_4" value="1" onchange="updateOptionStyle(this)">
-                            <span>Informal guidelines only</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1_4" value="0" onchange="updateOptionStyle(this)">
-                            <span>No</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q1_4" value="3" onchange="updateOptionStyle(this)"><span>Yes, comprehensive and actively used</span></label>
+                        <label class="option"><input type="radio" name="q1_4" value="2" onchange="updateOptionStyle(this)"><span>Yes, but not consistently applied</span></label>
+                        <label class="option"><input type="radio" name="q1_4" value="1" onchange="updateOptionStyle(this)"><span>Informal guidelines only</span></label>
+                        <label class="option"><input type="radio" name="q1_4" value="0" onchange="updateOptionStyle(this)"><span>No</span></label>
                     </div>
                 </div>
             </div>
 
-            <!-- Section 2: Online Presence & Local Visibility -->
+            <!-- Section 2: Online Presence & Local Visibility (18 points) -->
             <div class="section" id="section2">
                 <div class="section-header">
-                    <h3 class="section-title">Digital Presence & First Impressions</h3>
-                    <p class="section-description">How effectively does your online presence convert visitors into leads?</p>
+                    <h3 class="section-title">Online Presence & Local Visibility</h3>
+                    <p class="section-description">How discoverable and effective is your digital and local presence?</p>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">What percentage of your website visitors contact you or take a desired action?</label>
-                    <p class="question-help">Conversion rate: form fills, phone calls, consultations booked, etc.</p>
-                    <div class="input-group">
-                        <div class="input-with-suffix">
-                            <input type="number" id="q2_1" min="0" max="100" step="0.1" placeholder="0">
-                            <span class="input-suffix">%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">How quickly do you typically respond to new inquiries through your website or contact forms?</label>
+                    <label class="question-label">Approximately how many visitors does your website get per month?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q2_2" value="4" onchange="updateOptionStyle(this)">
-                            <span>Within 1 hour</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2_2" value="3" onchange="updateOptionStyle(this)">
-                            <span>Within 4 hours</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2_2" value="2" onchange="updateOptionStyle(this)">
-                            <span>Within 24 hours</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2_2" value="1" onchange="updateOptionStyle(this)">
-                            <span>Within 48 hours</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2_2" value="0" onchange="updateOptionStyle(this)">
-                            <span>Longer than 48 hours</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q2_1" value="3" onchange="updateOptionStyle(this)"><span>1,000+ visitors</span></label>
+                        <label class="option"><input type="radio" name="q2_1" value="2" onchange="updateOptionStyle(this)"><span>500-999 visitors</span></label>
+                        <label class="option"><input type="radio" name="q2_1" value="1" onchange="updateOptionStyle(this)"><span>100-499 visitors</span></label>
+                        <label class="option"><input type="radio" name="q2_1" value="0" onchange="updateOptionStyle(this)"><span>Under 100 visitors / I don't know</span></label>
                     </div>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">How much of your website traffic comes from organic search (not paid ads)?</label>
+                    <label class="question-label">How quickly do you typically respond to new inquiries?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q2_3" value="3" onchange="updateOptionStyle(this)">
-                            <span>50% or more</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2_3" value="2" onchange="updateOptionStyle(this)">
-                            <span>25-49%</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2_3" value="1" onchange="updateOptionStyle(this)">
-                            <span>10-24%</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2_3" value="0" onchange="updateOptionStyle(this)">
-                            <span>Less than 10% or unknown</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q2_2" value="4" onchange="updateOptionStyle(this)"><span>Within 1 hour</span></label>
+                        <label class="option"><input type="radio" name="q2_2" value="3" onchange="updateOptionStyle(this)"><span>Within 4 hours</span></label>
+                        <label class="option"><input type="radio" name="q2_2" value="2" onchange="updateOptionStyle(this)"><span>Within 24 hours</span></label>
+                        <label class="option"><input type="radio" name="q2_2" value="1" onchange="updateOptionStyle(this)"><span>Within 48 hours</span></label>
+                        <label class="option"><input type="radio" name="q2_2" value="0" onchange="updateOptionStyle(this)"><span>Longer than 48 hours / I don't know</span></label>
                     </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">How many website visitors did you have last month?</label>
-                    <p class="question-help">Check your Google Analytics or website dashboard</p>
-                    <div class="input-group">
-                        <div class="input-with-suffix">
-                            <input type="number" id="q2_4" min="0" placeholder="0">
-                            <span class="input-suffix">visitors</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">Which best describes your social media presence?</label>
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q2_5" value="3" onchange="updateOptionStyle(this)">
-                            <span>Active on 2+ platforms with consistent, strategic posting</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2_5" value="2" onchange="updateOptionStyle(this)">
-                            <span>Active on 1 platform consistently</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2_5" value="1" onchange="updateOptionStyle(this)">
-                            <span>Sporadic posting across platforms</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2_5" value="0" onchange="updateOptionStyle(this)">
-                            <span>No real presence or abandoned profiles</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 3: Local Marketing & Visibility -->
-            <div class="section" id="section3">
-                <div class="section-header">
-                    <h3 class="section-title">Local Marketing & Visibility</h3>
-                    <p class="section-description">How discoverable are you in your local market?</p>
                 </div>
 
                 <div class="question">
                     <label class="question-label">How optimized is your Google Business Profile?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q3_1" value="4" onchange="updateOptionStyle(this)">
-                            <span>Fully optimized, actively managed, regular posts, all sections complete</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3_1" value="3" onchange="updateOptionStyle(this)">
-                            <span>Claimed and complete but not actively managed</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3_1" value="2" onchange="updateOptionStyle(this)">
-                            <span>Claimed but incomplete</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3_1" value="0" onchange="updateOptionStyle(this)">
-                            <span>Not claimed or doesn't exist</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q2_3" value="4" onchange="updateOptionStyle(this)"><span>Fully optimized, actively managed, regular posts</span></label>
+                        <label class="option"><input type="radio" name="q2_3" value="3" onchange="updateOptionStyle(this)"><span>Claimed and complete but not actively managed</span></label>
+                        <label class="option"><input type="radio" name="q2_3" value="2" onchange="updateOptionStyle(this)"><span>Claimed but incomplete</span></label>
+                        <label class="option"><input type="radio" name="q2_3" value="1" onchange="updateOptionStyle(this)"><span>Not claimed or doesn't exist</span></label>
+                        <label class="option"><input type="radio" name="q2_3" value="0" onchange="updateOptionStyle(this)"><span>I don't know</span></label>
                     </div>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">How many reviews does your firm have across all platforms (Google, Avvo, Yelp, etc.)?</label>
-                    <div class="input-group">
-                        <div class="input-with-suffix">
-                            <input type="number" id="q3_2" min="0" placeholder="0">
-                            <span class="input-suffix">reviews</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">What is your average star rating across all review platforms?</label>
+                    <label class="question-label">Approximately how many online reviews does your firm have?</label>
+                    <p class="question-help">Google, Avvo, Yelp, etc. combined</p>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q3_3" value="3" onchange="updateOptionStyle(this)">
-                            <span>4.5 stars or higher</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3_3" value="2" onchange="updateOptionStyle(this)">
-                            <span>4.0-4.4 stars</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3_3" value="1" onchange="updateOptionStyle(this)">
-                            <span>3.5-3.9 stars</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3_3" value="0" onchange="updateOptionStyle(this)">
-                            <span>Below 3.5 stars or no reviews</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q2_4" value="4" onchange="updateOptionStyle(this)"><span>50+ reviews</span></label>
+                        <label class="option"><input type="radio" name="q2_4" value="3" onchange="updateOptionStyle(this)"><span>25-49 reviews</span></label>
+                        <label class="option"><input type="radio" name="q2_4" value="2" onchange="updateOptionStyle(this)"><span>10-24 reviews</span></label>
+                        <label class="option"><input type="radio" name="q2_4" value="1" onchange="updateOptionStyle(this)"><span>1-9 reviews</span></label>
+                        <label class="option"><input type="radio" name="q2_4" value="0" onchange="updateOptionStyle(this)"><span>No reviews / I don't know</span></label>
                     </div>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">Do you have a systematic process for requesting reviews from satisfied clients?</label>
+                    <label class="question-label">Do you have a system for requesting reviews from satisfied clients?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q3_4" value="3" onchange="updateOptionStyle(this)">
-                            <span>Yes, automated and consistently executed</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3_4" value="2" onchange="updateOptionStyle(this)">
-                            <span>Yes, but manual and sometimes inconsistent</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3_4" value="1" onchange="updateOptionStyle(this)">
-                            <span>We ask occasionally but not systematically</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3_4" value="0" onchange="updateOptionStyle(this)">
-                            <span>No system in place</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">Do you actively manage your online reputation (respond to reviews, monitor mentions)?</label>
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q3_5" value="2" onchange="updateOptionStyle(this)">
-                            <span>Yes, we monitor and respond regularly</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3_5" value="1" onchange="updateOptionStyle(this)">
-                            <span>Sometimes, when we remember</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3_5" value="0" onchange="updateOptionStyle(this)">
-                            <span>Rarely or never</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q2_5" value="3" onchange="updateOptionStyle(this)"><span>Yes, automated and consistently executed</span></label>
+                        <label class="option"><input type="radio" name="q2_5" value="2" onchange="updateOptionStyle(this)"><span>Yes, but manual and sometimes inconsistent</span></label>
+                        <label class="option"><input type="radio" name="q2_5" value="1" onchange="updateOptionStyle(this)"><span>We ask occasionally but not systematically</span></label>
+                        <label class="option"><input type="radio" name="q2_5" value="0" onchange="updateOptionStyle(this)"><span>No system in place</span></label>
                     </div>
                 </div>
             </div>
-
-            <!-- Section 4: Thought Leadership & Content -->
-            <div class="section" id="section4">
+            <!-- Section 3: Thought Leadership & Content (13 points) -->
+            <div class="section" id="section3">
                 <div class="section-header">
                     <h3 class="section-title">Thought Leadership & Content</h3>
                     <p class="section-description">How established are you as an authority in your practice area?</p>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">How often do you publish original content (articles, videos, podcasts, etc.)?</label>
+                    <label class="question-label">How often do you publish original content?</label>
+                    <p class="question-help">Articles, videos, podcasts, etc.</p>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q4_1" value="4" onchange="updateOptionStyle(this)">
-                            <span>Weekly or more</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4_1" value="3" onchange="updateOptionStyle(this)">
-                            <span>2-3 times per month</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4_1" value="2" onchange="updateOptionStyle(this)">
-                            <span>Monthly</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4_1" value="1" onchange="updateOptionStyle(this)">
-                            <span>Quarterly or less</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4_1" value="0" onchange="updateOptionStyle(this)">
-                            <span>Rarely or never</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q3_1" value="4" onchange="updateOptionStyle(this)"><span>Weekly or more</span></label>
+                        <label class="option"><input type="radio" name="q3_1" value="3" onchange="updateOptionStyle(this)"><span>2-3 times per month</span></label>
+                        <label class="option"><input type="radio" name="q3_1" value="2" onchange="updateOptionStyle(this)"><span>Monthly</span></label>
+                        <label class="option"><input type="radio" name="q3_1" value="1" onchange="updateOptionStyle(this)"><span>Quarterly or less</span></label>
+                        <label class="option"><input type="radio" name="q3_1" value="0" onchange="updateOptionStyle(this)"><span>Rarely or never</span></label>
                     </div>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">In the past 12 months, how many times have you been featured in media, podcasts, or as a conference speaker?</label>
-                    <div class="input-group">
-                        <div class="input-with-suffix">
-                            <input type="number" id="q4_2" min="0" placeholder="0">
-                            <span class="input-suffix">times</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">Are you regularly asked for your opinion/expertise by others in your field?</label>
+                    <label class="question-label">In the past year, how often have you been featured in media or as a speaker?</label>
+                    <p class="question-help">Media, podcasts, conferences</p>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q4_3" value="3" onchange="updateOptionStyle(this)">
-                            <span>Yes, frequently from media and peers</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4_3" value="2" onchange="updateOptionStyle(this)">
-                            <span>Sometimes from peers</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4_3" value="1" onchange="updateOptionStyle(this)">
-                            <span>Occasionally</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4_3" value="0" onchange="updateOptionStyle(this)">
-                            <span>Rarely or never</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q3_2" value="3" onchange="updateOptionStyle(this)"><span>10+ times</span></label>
+                        <label class="option"><input type="radio" name="q3_2" value="2" onchange="updateOptionStyle(this)"><span>5-9 times</span></label>
+                        <label class="option"><input type="radio" name="q3_2" value="1" onchange="updateOptionStyle(this)"><span>1-4 times</span></label>
+                        <label class="option"><input type="radio" name="q3_2" value="0" onchange="updateOptionStyle(this)"><span>Never / I don't know</span></label>
                     </div>
                 </div>
 
                 <div class="question">
                     <label class="question-label">Do you use client testimonials and case studies in your marketing?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q4_4" value="3" onchange="updateOptionStyle(this)">
-                            <span>Yes, we actively collect and feature them across channels</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4_4" value="2" onchange="updateOptionStyle(this)">
-                            <span>We have some on our website</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4_4" value="1" onchange="updateOptionStyle(this)">
-                            <span>We have a few but don't actively promote them</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4_4" value="0" onchange="updateOptionStyle(this)">
-                            <span>No</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q3_3" value="3" onchange="updateOptionStyle(this)"><span>Yes, we actively collect and feature them across channels</span></label>
+                        <label class="option"><input type="radio" name="q3_3" value="2" onchange="updateOptionStyle(this)"><span>We have some on our website</span></label>
+                        <label class="option"><input type="radio" name="q3_3" value="1" onchange="updateOptionStyle(this)"><span>We have a few but don't actively promote them</span></label>
+                        <label class="option"><input type="radio" name="q3_3" value="0" onchange="updateOptionStyle(this)"><span>No</span></label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Are you regularly asked for your expert opinion by others in your field?</label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q3_4" value="3" onchange="updateOptionStyle(this)"><span>Yes, frequently from media and peers</span></label>
+                        <label class="option"><input type="radio" name="q3_4" value="2" onchange="updateOptionStyle(this)"><span>Sometimes from peers</span></label>
+                        <label class="option"><input type="radio" name="q3_4" value="1" onchange="updateOptionStyle(this)"><span>Occasionally</span></label>
+                        <label class="option"><input type="radio" name="q3_4" value="0" onchange="updateOptionStyle(this)"><span>Rarely or never</span></label>
                     </div>
                 </div>
             </div>
 
-            <!-- Section 5: Lead Generation & Acquisition -->
-            <div class="section" id="section5">
+            <!-- Section 4: Lead Generation & Acquisition (16 points) -->
+            <div class="section" id="section4">
                 <div class="section-header">
                     <h3 class="section-title">Lead Generation & Acquisition</h3>
                     <p class="section-description">How systematic and predictable is your new client pipeline?</p>
@@ -1385,7 +963,7 @@
                 <div class="question">
                     <label class="question-label">How predictable is your new client pipeline?</label>
                     <div class="range-container">
-                        <input type="range" min="1" max="5" value="3" class="range-input" id="q5_1" oninput="updateRangeValue(this)">
+                        <input type="range" min="1" max="5" value="3" class="range-input" id="q4_1" oninput="updateRangeValue(this)">
                         <div class="range-labels">
                             <span>Feast or famine</span>
                             <span>Unpredictable</span>
@@ -1393,312 +971,154 @@
                             <span>Predictable</span>
                             <span>Highly systematic</span>
                         </div>
-                        <div class="range-value" id="q5_1_value">3 - Generally consistent</div>
+                        <div class="range-value" id="q4_1_value">3 - Generally consistent</div>
                     </div>
                 </div>
 
                 <div class="question">
                     <label class="question-label">Do you have a documented process for converting leads to clients?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q5_2" value="4" onchange="updateOptionStyle(this)">
-                            <span>Yes, documented and consistently followed</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5_2" value="2" onchange="updateOptionStyle(this)">
-                            <span>Yes, but informally or inconsistently applied</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5_2" value="0" onchange="updateOptionStyle(this)">
-                            <span>No formal process</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q4_2" value="4" onchange="updateOptionStyle(this)"><span>Yes, documented and consistently followed</span></label>
+                        <label class="option"><input type="radio" name="q4_2" value="2" onchange="updateOptionStyle(this)"><span>Yes, but informally or inconsistently applied</span></label>
+                        <label class="option"><input type="radio" name="q4_2" value="0" onchange="updateOptionStyle(this)"><span>No formal process</span></label>
                     </div>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">What percentage of initial consultations become paying clients?</label>
-                    <p class="question-help">Your consultation-to-client conversion rate</p>
-                    <div class="input-group">
-                        <div class="input-with-suffix">
-                            <input type="number" id="q5_3" min="0" max="100" step="1" placeholder="0">
-                            <span class="input-suffix">%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">How do you currently track and manage leads?</label>
+                    <label class="question-label">Roughly what percentage of consultations become paying clients?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q5_4" value="4" onchange="updateOptionStyle(this)">
-                            <span>Comprehensive CRM with pipeline tracking and automation</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5_4" value="3" onchange="updateOptionStyle(this)">
-                            <span>Basic CRM, used consistently</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5_4" value="2" onchange="updateOptionStyle(this)">
-                            <span>Spreadsheets or practice management software</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5_4" value="1" onchange="updateOptionStyle(this)">
-                            <span>Email and memory</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q5_4" value="0" onchange="updateOptionStyle(this)">
-                            <span>No systematic tracking</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q4_3" value="4" onchange="updateOptionStyle(this)"><span>60% or higher</span></label>
+                        <label class="option"><input type="radio" name="q4_3" value="3" onchange="updateOptionStyle(this)"><span>40-59%</span></label>
+                        <label class="option"><input type="radio" name="q4_3" value="2" onchange="updateOptionStyle(this)"><span>20-39%</span></label>
+                        <label class="option"><input type="radio" name="q4_3" value="1" onchange="updateOptionStyle(this)"><span>Under 20%</span></label>
+                        <label class="option"><input type="radio" name="q4_3" value="0" onchange="updateOptionStyle(this)"><span>I don't know</span></label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">How do you track and manage leads?</label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q4_4" value="4" onchange="updateOptionStyle(this)"><span>Comprehensive CRM with pipeline tracking</span></label>
+                        <label class="option"><input type="radio" name="q4_4" value="3" onchange="updateOptionStyle(this)"><span>Basic CRM, used consistently</span></label>
+                        <label class="option"><input type="radio" name="q4_4" value="2" onchange="updateOptionStyle(this)"><span>Spreadsheets or practice management software</span></label>
+                        <label class="option"><input type="radio" name="q4_4" value="1" onchange="updateOptionStyle(this)"><span>Email and memory</span></label>
+                        <label class="option"><input type="radio" name="q4_4" value="0" onchange="updateOptionStyle(this)"><span>No systematic tracking</span></label>
                     </div>
                 </div>
             </div>
 
-            <!-- Section 6: Client Experience & Retention -->
-            <div class="section" id="section6">
+            <!-- Section 5: Client Experience & Retention (20 points) -->
+            <div class="section" id="section5">
                 <div class="section-header">
                     <h3 class="section-title">Client Experience & Retention</h3>
                     <p class="section-description">How well do you nurture and retain your client relationships?</p>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">What percentage of clients would you estimate refer others to your firm?</label>
-                    <p class="question-help">Think about clients who have sent you at least one referral</p>
-                    <div class="input-group">
-                        <div class="input-with-suffix">
-                            <input type="number" id="q6_1" min="0" max="100" step="1" placeholder="0">
-                            <span class="input-suffix">%</span>
-                        </div>
+                    <label class="question-label">Roughly what percentage of clients refer others to your firm?</label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q5_1" value="4" onchange="updateOptionStyle(this)"><span>40% or more</span></label>
+                        <label class="option"><input type="radio" name="q5_1" value="3" onchange="updateOptionStyle(this)"><span>25-39%</span></label>
+                        <label class="option"><input type="radio" name="q5_1" value="2" onchange="updateOptionStyle(this)"><span>10-24%</span></label>
+                        <label class="option"><input type="radio" name="q5_1" value="1" onchange="updateOptionStyle(this)"><span>Under 10%</span></label>
+                        <label class="option"><input type="radio" name="q5_1" value="0" onchange="updateOptionStyle(this)"><span>I don't know</span></label>
                     </div>
                 </div>
 
                 <div class="question">
                     <label class="question-label">Do you have a systematic process for staying in touch with past clients?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q6_2" value="4" onchange="updateOptionStyle(this)">
-                            <span>Yes, automated and consistent (newsletters, check-ins, value-adds)</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6_2" value="2" onchange="updateOptionStyle(this)">
-                            <span>Yes, but manual and sometimes inconsistent</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6_2" value="1" onchange="updateOptionStyle(this)">
-                            <span>Ad hoc only</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6_2" value="0" onchange="updateOptionStyle(this)">
-                            <span>No system</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q5_2" value="4" onchange="updateOptionStyle(this)"><span>Yes, automated and consistent</span></label>
+                        <label class="option"><input type="radio" name="q5_2" value="2" onchange="updateOptionStyle(this)"><span>Yes, but manual and sometimes inconsistent</span></label>
+                        <label class="option"><input type="radio" name="q5_2" value="1" onchange="updateOptionStyle(this)"><span>Ad hoc only</span></label>
+                        <label class="option"><input type="radio" name="q5_2" value="0" onchange="updateOptionStyle(this)"><span>No system</span></label>
                     </div>
                 </div>
 
                 <div class="question">
                     <label class="question-label">How do you track and manage referrals?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q6_3" value="4" onchange="updateOptionStyle(this)">
-                            <span>Comprehensive system tracking referrals given and received</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6_3" value="3" onchange="updateOptionStyle(this)">
-                            <span>Basic tracking of referrals received</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6_3" value="1" onchange="updateOptionStyle(this)">
-                            <span>Informal tracking or memory</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6_3" value="0" onchange="updateOptionStyle(this)">
-                            <span>No tracking</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q5_3" value="4" onchange="updateOptionStyle(this)"><span>Comprehensive system tracking referrals given and received</span></label>
+                        <label class="option"><input type="radio" name="q5_3" value="3" onchange="updateOptionStyle(this)"><span>Basic tracking of referrals received</span></label>
+                        <label class="option"><input type="radio" name="q5_3" value="1" onchange="updateOptionStyle(this)"><span>Informal tracking or memory</span></label>
+                        <label class="option"><input type="radio" name="q5_3" value="0" onchange="updateOptionStyle(this)"><span>No tracking</span></label>
                     </div>
                 </div>
 
                 <div class="question">
                     <label class="question-label">How many active referral relationships do you maintain with other attorneys?</label>
-                    <p class="question-help">Attorneys in non-competing practice areas you regularly exchange referrals with</p>
-                    <div class="input-group">
-                        <div class="input-with-suffix">
-                            <input type="number" id="q6_4" min="0" placeholder="0">
-                            <span class="input-suffix">relationships</span>
-                        </div>
+                    <p class="question-help">Non-competing practice areas you regularly exchange referrals with</p>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q5_4" value="4" onchange="updateOptionStyle(this)"><span>15+ relationships</span></label>
+                        <label class="option"><input type="radio" name="q5_4" value="3" onchange="updateOptionStyle(this)"><span>8-14 relationships</span></label>
+                        <label class="option"><input type="radio" name="q5_4" value="2" onchange="updateOptionStyle(this)"><span>3-7 relationships</span></label>
+                        <label class="option"><input type="radio" name="q5_4" value="1" onchange="updateOptionStyle(this)"><span>1-2 relationships</span></label>
+                        <label class="option"><input type="radio" name="q5_4" value="0" onchange="updateOptionStyle(this)"><span>None / I don't know</span></label>
                     </div>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">Do you track how many matters the average client brings to your firm over their lifetime?</label>
+                    <label class="question-label">Do you track how many matters the average client brings over their lifetime?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q6_5" value="3" onchange="updateOptionStyle(this)">
-                            <span>Yes, we actively track client lifetime value</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6_5" value="1" onchange="updateOptionStyle(this)">
-                            <span>We have a general sense but don't formally track</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6_5" value="0" onchange="updateOptionStyle(this)">
-                            <span>No</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q5_5" value="4" onchange="updateOptionStyle(this)"><span>Yes, we actively track client lifetime value</span></label>
+                        <label class="option"><input type="radio" name="q5_5" value="2" onchange="updateOptionStyle(this)"><span>We have a general sense but don't formally track</span></label>
+                        <label class="option"><input type="radio" name="q5_5" value="0" onchange="updateOptionStyle(this)"><span>No / I don't know</span></label>
                     </div>
                 </div>
             </div>
 
-            <!-- Section 7: Attribution & Analytics -->
-            <div class="section" id="section7">
+            <!-- Section 6: Systems & Measurement (13 points) -->
+            <div class="section" id="section6">
                 <div class="section-header">
-                    <h3 class="section-title">Attribution & Analytics</h3>
-                    <p class="section-description">How well do you understand and measure your marketing performance?</p>
+                    <h3 class="section-title">Systems & Measurement</h3>
+                    <p class="section-description">How well do you track performance and automate your marketing?</p>
                 </div>
 
                 <div class="question">
                     <label class="question-label">How well do you track where your clients come from?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q7_1" value="4" onchange="updateOptionStyle(this)">
-                            <span>Systematic tracking with attribution for every client</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7_1" value="3" onchange="updateOptionStyle(this)">
-                            <span>We track most clients but not systematically</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7_1" value="2" onchange="updateOptionStyle(this)">
-                            <span>We have a general sense but no formal tracking</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7_1" value="1" onchange="updateOptionStyle(this)">
-                            <span>We ask occasionally but don't record it</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7_1" value="0" onchange="updateOptionStyle(this)">
-                            <span>We don't track this</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q6_1" value="4" onchange="updateOptionStyle(this)"><span>Systematic tracking with attribution for every client</span></label>
+                        <label class="option"><input type="radio" name="q6_1" value="3" onchange="updateOptionStyle(this)"><span>We track most clients but not systematically</span></label>
+                        <label class="option"><input type="radio" name="q6_1" value="2" onchange="updateOptionStyle(this)"><span>We have a general sense but no formal tracking</span></label>
+                        <label class="option"><input type="radio" name="q6_1" value="1" onchange="updateOptionStyle(this)"><span>We ask occasionally but don't record it</span></label>
+                        <label class="option"><input type="radio" name="q6_1" value="0" onchange="updateOptionStyle(this)"><span>We don't track this</span></label>
                     </div>
                 </div>
 
                 <div class="question">
-                    <label class="question-label">Can you identify your most profitable marketing channel by actual ROI?</label>
+                    <label class="question-label">Can you identify your most profitable marketing channel?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q7_2" value="3" onchange="updateOptionStyle(this)">
-                            <span>Yes, we track ROI on all channels</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7_2" value="2" onchange="updateOptionStyle(this)">
-                            <span>Yes, for some channels</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7_2" value="1" onchange="updateOptionStyle(this)">
-                            <span>We have estimates but not hard data</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7_2" value="0" onchange="updateOptionStyle(this)">
-                            <span>No</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q6_2" value="3" onchange="updateOptionStyle(this)"><span>Yes, we track ROI on all channels</span></label>
+                        <label class="option"><input type="radio" name="q6_2" value="2" onchange="updateOptionStyle(this)"><span>Yes, for some channels</span></label>
+                        <label class="option"><input type="radio" name="q6_2" value="1" onchange="updateOptionStyle(this)"><span>We have estimates but not hard data</span></label>
+                        <label class="option"><input type="radio" name="q6_2" value="0" onchange="updateOptionStyle(this)"><span>No / I don't know</span></label>
                     </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">Do you regularly review website analytics?</label>
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q7_3" value="3" onchange="updateOptionStyle(this)">
-                            <span>Yes, at least monthly with documented insights</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7_3" value="2" onchange="updateOptionStyle(this)">
-                            <span>Yes, occasionally</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7_3" value="1" onchange="updateOptionStyle(this)">
-                            <span>Rarely</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7_3" value="0" onchange="updateOptionStyle(this)">
-                            <span>No or don't have analytics set up</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 8: Marketing Infrastructure & Efficiency -->
-            <div class="section" id="section8">
-                <div class="section-header">
-                    <h3 class="section-title">Marketing Infrastructure & Efficiency</h3>
-                    <p class="section-description">How sophisticated and integrated are your marketing systems?</p>
                 </div>
 
                 <div class="question">
                     <label class="question-label">What level of marketing automation do you have in place?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q8_1" value="4" onchange="updateOptionStyle(this)">
-                            <span>Sophisticated automation across multiple touchpoints (email sequences, social, follow-ups)</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8_1" value="3" onchange="updateOptionStyle(this)">
-                            <span>Basic automation (email sequences, appointment reminders)</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8_1" value="1" onchange="updateOptionStyle(this)">
-                            <span>Minimal automation, mostly manual processes</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8_1" value="0" onchange="updateOptionStyle(this)">
-                            <span>No automation</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">How well do your marketing and practice management tools work together?</label>
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q8_2" value="3" onchange="updateOptionStyle(this)">
-                            <span>Fully integrated with data flowing between systems</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8_2" value="2" onchange="updateOptionStyle(this)">
-                            <span>Some integration but manual workarounds needed</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8_2" value="1" onchange="updateOptionStyle(this)">
-                            <span>Separate systems, no integration</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8_2" value="0" onchange="updateOptionStyle(this)">
-                            <span>Don't use marketing-specific tools</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q6_3" value="3" onchange="updateOptionStyle(this)"><span>Sophisticated automation across multiple touchpoints</span></label>
+                        <label class="option"><input type="radio" name="q6_3" value="2" onchange="updateOptionStyle(this)"><span>Basic automation (email sequences, appointment reminders)</span></label>
+                        <label class="option"><input type="radio" name="q6_3" value="1" onchange="updateOptionStyle(this)"><span>Minimal automation, mostly manual processes</span></label>
+                        <label class="option"><input type="radio" name="q6_3" value="0" onchange="updateOptionStyle(this)"><span>No automation</span></label>
                     </div>
                 </div>
 
                 <div class="question">
                     <label class="question-label">Do you have a defined marketing budget that you track?</label>
                     <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q8_3" value="3" onchange="updateOptionStyle(this)">
-                            <span>Yes, with monthly tracking and ROI measurement</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8_3" value="2" onchange="updateOptionStyle(this)">
-                            <span>Yes, but we don't track closely</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8_3" value="0" onchange="updateOptionStyle(this)">
-                            <span>No defined budget</span>
-                        </label>
+                        <label class="option"><input type="radio" name="q6_4" value="3" onchange="updateOptionStyle(this)"><span>Yes, with monthly tracking and ROI measurement</span></label>
+                        <label class="option"><input type="radio" name="q6_4" value="2" onchange="updateOptionStyle(this)"><span>Yes, but we don't track closely</span></label>
+                        <label class="option"><input type="radio" name="q6_4" value="0" onchange="updateOptionStyle(this)"><span>No defined budget</span></label>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Email Capture Section -->
+        <!-- Email Capture -->
         <div id="emailCapture" class="email-section hidden">
             <h3>Get Your Personalized Results</h3>
-            <p>Enter your details below to receive your comprehensive marketing assessment report</p>
-            
+            <p>Enter your details to receive your comprehensive marketing assessment report</p>
             <form class="email-form" id="emailForm" onsubmit="submitEmail(event)">
                 <div class="form-group">
                     <label for="firstName">First Name</label>
@@ -1716,7 +1136,7 @@
             </form>
         </div>
 
-        <!-- Results Section -->
+        <!-- Results -->
         <div id="results" class="results-section">
             <div class="results-header">
                 <div class="stage-badge" id="stageBadge">Foundation</div>
@@ -1745,7 +1165,7 @@
             </div>
         </div>
 
-        <!-- Navigation Buttons -->
+        <!-- Navigation -->
         <div class="nav-buttons hidden" id="navButtons">
             <button class="btn btn-secondary" id="prevBtn" onclick="previousSection()">Previous</button>
             <button class="btn" id="nextBtn" onclick="nextSection()">Next Section</button>
@@ -1753,23 +1173,19 @@
     </div>
 
     <script>
-        // Assessment data
         let currentSection = 0;
         const totalSections = 7;
-        let responses = {};
-        
-        // Section configurations
+
         const sections = [
-            { id: 'section0', name: 'Firm Profile', maxPoints: 0 }, // Not scored
+            { id: 'section0', name: 'Firm Profile', maxPoints: 0 },
             { id: 'section1', name: 'Brand Awareness & Positioning', maxPoints: 15 },
-            { id: 'section2', name: 'Online Presence & Local Visibility', maxPoints: 20 },
-            { id: 'section3', name: 'Thought Leadership & Content', maxPoints: 12 },
-            { id: 'section4', name: 'Lead Generation & Acquisition', maxPoints: 15 },
-            { id: 'section5', name: 'Client Experience & Retention', maxPoints: 16 },
-            { id: 'section6', name: 'Systems & Measurement', maxPoints: 14 }
+            { id: 'section2', name: 'Online Presence & Local Visibility', maxPoints: 18 },
+            { id: 'section3', name: 'Thought Leadership & Content', maxPoints: 13 },
+            { id: 'section4', name: 'Lead Generation & Acquisition', maxPoints: 16 },
+            { id: 'section5', name: 'Client Experience & Retention', maxPoints: 20 },
+            { id: 'section6', name: 'Systems & Measurement', maxPoints: 13 }
         ];
 
-        // Stage definitions
         const stages = {
             foundation: { min: 0, max: 25, name: 'Foundation', gradient: 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)' },
             emerging: { min: 26, max: 50, name: 'Emerging', gradient: 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)' },
@@ -1789,20 +1205,12 @@
         }
 
         function showSection(index) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show current section
-            const sectionElement = document.getElementById(`section${index + 1}`);
-            if (sectionElement) {
-                sectionElement.classList.add('active');
-                currentSection = index;
-                updateProgress();
-                updateNavigationButtons();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(`section${index}`).classList.add('active');
+            currentSection = index;
+            updateProgress();
+            updateNavigationButtons();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function updateProgress() {
@@ -1812,17 +1220,12 @@
         }
 
         function updateNavigationButtons() {
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            
-            prevBtn.style.display = currentSection === 0 ? 'none' : 'block';
-            nextBtn.textContent = currentSection === totalSections - 1 ? 'Complete Assessment' : 'Next Section';
+            document.getElementById('prevBtn').style.display = currentSection === 0 ? 'none' : 'block';
+            document.getElementById('nextBtn').textContent = currentSection === totalSections - 1 ? 'Complete Assessment' : 'Next Section';
         }
 
         function previousSection() {
-            if (currentSection > 0) {
-                showSection(currentSection - 1);
-            }
+            if (currentSection > 0) showSection(currentSection - 1);
         }
 
         function nextSection() {
@@ -1834,74 +1237,48 @@
         }
 
         function completeAssessment() {
-            // Hide assessment form
             document.getElementById('assessmentForm').style.display = 'none';
             document.getElementById('navButtons').classList.add('hidden');
             document.getElementById('progress').classList.add('hidden');
-            
-            // Show email capture
             document.getElementById('emailCapture').classList.remove('hidden');
         }
 
         function submitEmail(event) {
             event.preventDefault();
-            
-            // Hide email capture
             document.getElementById('emailCapture').classList.add('hidden');
-            
-            // Calculate and show results
             calculateAndShowResults();
         }
 
         function updateRangeValue(input) {
-            const labels = ['Unknown', 'Rarely known', 'Somewhat known', 'Well known', 'Top of mind'];
-            const labels2 = ['Feast or famine', 'Somewhat unpredictable', 'Generally consistent', 'Predictable within a range', 'Highly systematic'];
-            
+            const labels = {
+                'q1_1': ['Unknown', 'Rarely known', 'Somewhat known', 'Well known', 'Top of mind'],
+                'q4_1': ['Feast or famine', 'Unpredictable', 'Generally consistent', 'Predictable', 'Highly systematic']
+            };
             const value = parseInt(input.value);
-            const valueElement = document.getElementById(input.id + '_value');
-            
-            if (input.id === 'q1_1') {
-                valueElement.textContent = value + ' - ' + labels[value - 1];
-            } else if (input.id === 'q5_1') {
-                valueElement.textContent = value + ' - ' + labels2[value - 1];
-            }
+            const label = labels[input.id][value - 1];
+            document.getElementById(input.id + '_value').textContent = `${value} - ${label}`;
         }
 
         function updateOptionStyle(input) {
-            // Remove selected class from all options in this group
-            const name = input.name;
-            document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
-                radio.closest('.option').classList.remove('selected');
+            document.querySelectorAll(`input[name="${input.name}"]`).forEach(r => {
+                r.closest('.option').classList.remove('selected');
             });
-            
-            // Add selected class to chosen option
-            if (input.checked) {
-                input.closest('.option').classList.add('selected');
-            }
+            if (input.checked) input.closest('.option').classList.add('selected');
         }
 
         function calculateAndShowResults() {
-            // Calculate scores
             const scores = calculateScores();
-            const totalScore = scores.total;
-            const dimensionScores = scores.dimensions;
-            
-            // Determine stage
+            const totalScore = Math.round((scores.total / 95) * 100); // Scale to 100
             const stage = getStage(totalScore);
             
-            // Show results
             document.getElementById('stageBadge').textContent = stage.name;
             document.getElementById('stageBadge').style.background = stage.gradient;
             document.getElementById('overallScore').textContent = totalScore;
             document.getElementById('stageDescription').textContent = getStageDescription(stage.name);
             
-            // Populate dimensions
-            populateDimensions(dimensionScores);
+            populateDimensions(scores.dimensions, totalScore);
+            populatePriorities(scores.dimensions, stage.name);
             
-            // Populate priorities
-            populatePriorities(dimensionScores, stage.name);
-            
-            // Show results section
             document.getElementById('results').classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -1909,88 +1286,56 @@
         function calculateScores() {
             const dimensionScores = [];
             
-            // Section 1: Brand Awareness & Positioning (15 points)
-            let section1 = 0;
-            section1 += parseInt(document.getElementById('q1_1').value) || 0;
-            section1 += parseInt(document.querySelector('input[name="q1_2"]:checked')?.value || 0);
-            section1 += parseInt(document.querySelector('input[name="q1_3"]:checked')?.value || 0);
-            section1 += parseInt(document.querySelector('input[name="q1_4"]:checked')?.value || 0);
-            dimensionScores.push({ name: sections[0].name, score: section1, max: sections[0].maxPoints });
+            // Section 1: Brand Awareness (15 pts)
+            let s1 = parseInt(document.getElementById('q1_1').value) || 0;
+            s1 += parseInt(document.querySelector('input[name="q1_2"]:checked')?.value || 0);
+            s1 += parseInt(document.querySelector('input[name="q1_3"]:checked')?.value || 0);
+            s1 += parseInt(document.querySelector('input[name="q1_4"]:checked')?.value || 0);
+            dimensionScores.push({ name: sections[1].name, score: s1, max: 15 });
             
-            // Section 2: Digital Presence & First Impressions (15 points)
-            let section2 = 0;
-            const conversionRate = parseFloat(document.getElementById('q2_1').value || 0);
-            section2 += conversionRate >= 5 ? 4 : conversionRate >= 3 ? 3 : conversionRate >= 1 ? 2 : conversionRate > 0 ? 1 : 0;
-            section2 += parseInt(document.querySelector('input[name="q2_2"]:checked')?.value || 0);
-            section2 += parseInt(document.querySelector('input[name="q2_3"]:checked')?.value || 0);
-            const visitors = parseInt(document.getElementById('q2_4').value || 0);
-            section2 += visitors >= 1000 ? 2 : visitors >= 500 ? 1 : 0;
-            section2 += parseInt(document.querySelector('input[name="q2_5"]:checked')?.value || 0);
-            dimensionScores.push({ name: sections[1].name, score: section2, max: sections[1].maxPoints });
+            // Section 2: Online Presence (18 pts)
+            let s2 = parseInt(document.querySelector('input[name="q2_1"]:checked')?.value || 0);
+            s2 += parseInt(document.querySelector('input[name="q2_2"]:checked')?.value || 0);
+            s2 += parseInt(document.querySelector('input[name="q2_3"]:checked')?.value || 0);
+            s2 += parseInt(document.querySelector('input[name="q2_4"]:checked')?.value || 0);
+            s2 += parseInt(document.querySelector('input[name="q2_5"]:checked')?.value || 0);
+            dimensionScores.push({ name: sections[2].name, score: s2, max: 18 });
             
-            // Section 3: Local Marketing & Visibility (15 points)
-            let section3 = 0;
-            section3 += parseInt(document.querySelector('input[name="q3_1"]:checked')?.value || 0);
-            const reviews = parseInt(document.getElementById('q3_2').value || 0);
-            section3 += reviews >= 50 ? 3 : reviews >= 25 ? 2 : reviews >= 10 ? 1 : 0;
-            section3 += parseInt(document.querySelector('input[name="q3_3"]:checked')?.value || 0);
-            section3 += parseInt(document.querySelector('input[name="q3_4"]:checked')?.value || 0);
-            section3 += parseInt(document.querySelector('input[name="q3_5"]:checked')?.value || 0);
-            dimensionScores.push({ name: sections[2].name, score: section3, max: sections[2].maxPoints });
+            // Section 3: Thought Leadership (13 pts)
+            let s3 = parseInt(document.querySelector('input[name="q3_1"]:checked')?.value || 0);
+            s3 += parseInt(document.querySelector('input[name="q3_2"]:checked')?.value || 0);
+            s3 += parseInt(document.querySelector('input[name="q3_3"]:checked')?.value || 0);
+            s3 += parseInt(document.querySelector('input[name="q3_4"]:checked')?.value || 0);
+            dimensionScores.push({ name: sections[3].name, score: s3, max: 13 });
             
-            // Section 4: Thought Leadership & Content (12 points)
-            let section4 = 0;
-            section4 += parseInt(document.querySelector('input[name="q4_1"]:checked')?.value || 0);
-            const media = parseInt(document.getElementById('q4_2').value || 0);
-            section4 += media >= 10 ? 2 : media >= 5 ? 1 : 0;
-            section4 += parseInt(document.querySelector('input[name="q4_3"]:checked')?.value || 0);
-            section4 += parseInt(document.querySelector('input[name="q4_4"]:checked')?.value || 0);
-            dimensionScores.push({ name: sections[3].name, score: section4, max: sections[3].maxPoints });
+            // Section 4: Lead Generation (16 pts)
+            let s4 = parseInt(document.getElementById('q4_1').value) || 0;
+            s4 += parseInt(document.querySelector('input[name="q4_2"]:checked')?.value || 0);
+            s4 += parseInt(document.querySelector('input[name="q4_3"]:checked')?.value || 0);
+            s4 += parseInt(document.querySelector('input[name="q4_4"]:checked')?.value || 0);
+            dimensionScores.push({ name: sections[4].name, score: s4, max: 16 });
             
-            // Section 5: Lead Generation & Acquisition (15 points)
-            let section5 = 0;
-            section5 += parseInt(document.getElementById('q5_1').value) || 0;
-            section5 += parseInt(document.querySelector('input[name="q5_2"]:checked')?.value || 0);
-            const consultConversion = parseFloat(document.getElementById('q5_3').value || 0);
-            section5 += consultConversion >= 60 ? 3 : consultConversion >= 40 ? 2 : consultConversion >= 20 ? 1 : 0;
-            section5 += parseInt(document.querySelector('input[name="q5_4"]:checked')?.value || 0);
-            dimensionScores.push({ name: sections[4].name, score: section5, max: sections[4].maxPoints });
+            // Section 5: Client Experience (20 pts)
+            let s5 = parseInt(document.querySelector('input[name="q5_1"]:checked')?.value || 0);
+            s5 += parseInt(document.querySelector('input[name="q5_2"]:checked')?.value || 0);
+            s5 += parseInt(document.querySelector('input[name="q5_3"]:checked')?.value || 0);
+            s5 += parseInt(document.querySelector('input[name="q5_4"]:checked')?.value || 0);
+            s5 += parseInt(document.querySelector('input[name="q5_5"]:checked')?.value || 0);
+            dimensionScores.push({ name: sections[5].name, score: s5, max: 20 });
             
-            // Section 6: Client Experience & Retention (16 points)
-            let section6 = 0;
-            const referralRate = parseFloat(document.getElementById('q6_1').value || 0);
-            section6 += referralRate >= 40 ? 3 : referralRate >= 25 ? 2 : referralRate >= 10 ? 1 : 0;
-            section6 += parseInt(document.querySelector('input[name="q6_2"]:checked')?.value || 0);
-            section6 += parseInt(document.querySelector('input[name="q6_3"]:checked')?.value || 0);
-            const referralPartners = parseInt(document.getElementById('q6_4').value || 0);
-            section6 += referralPartners >= 15 ? 3 : referralPartners >= 8 ? 2 : referralPartners >= 3 ? 1 : 0;
-            section6 += parseInt(document.querySelector('input[name="q6_5"]:checked')?.value || 0);
-            dimensionScores.push({ name: sections[5].name, score: section6, max: sections[5].maxPoints });
+            // Section 6: Systems (13 pts)
+            let s6 = parseInt(document.querySelector('input[name="q6_1"]:checked')?.value || 0);
+            s6 += parseInt(document.querySelector('input[name="q6_2"]:checked')?.value || 0);
+            s6 += parseInt(document.querySelector('input[name="q6_3"]:checked')?.value || 0);
+            s6 += parseInt(document.querySelector('input[name="q6_4"]:checked')?.value || 0);
+            dimensionScores.push({ name: sections[6].name, score: s6, max: 13 });
             
-            // Section 7: Attribution & Analytics (10 points)
-            let section7 = 0;
-            section7 += parseInt(document.querySelector('input[name="q7_1"]:checked')?.value || 0);
-            section7 += parseInt(document.querySelector('input[name="q7_2"]:checked')?.value || 0);
-            section7 += parseInt(document.querySelector('input[name="q7_3"]:checked')?.value || 0);
-            dimensionScores.push({ name: sections[6].name, score: section7, max: sections[6].maxPoints });
-            
-            // Section 8: Marketing Infrastructure & Efficiency (10 points)
-            let section8 = 0;
-            section8 += parseInt(document.querySelector('input[name="q8_1"]:checked')?.value || 0);
-            section8 += parseInt(document.querySelector('input[name="q8_2"]:checked')?.value || 0);
-            section8 += parseInt(document.querySelector('input[name="q8_3"]:checked')?.value || 0);
-            dimensionScores.push({ name: sections[7].name, score: section8, max: sections[7].maxPoints });
-            
-            const total = section1 + section2 + section3 + section4 + section5 + section6 + section7 + section8;
-            
-            return { total, dimensions: dimensionScores };
+            return { total: s1 + s2 + s3 + s4 + s5 + s6, dimensions: dimensionScores };
         }
 
         function getStage(score) {
-            for (const [key, stage] of Object.entries(stages)) {
-                if (score >= stage.min && score <= stage.max) {
-                    return stage;
-                }
+            for (const stage of Object.values(stages)) {
+                if (score >= stage.min && score <= stage.max) return stage;
             }
             return stages.foundation;
         }
@@ -2003,10 +1348,10 @@
                 'Advanced': 'You\'re executing sophisticated marketing with data-driven decisions. Continue refining your systems and explore innovation to maintain competitive advantage.',
                 'Leading': 'You\'re a market leader with predictable, scalable systems. Focus on maintaining leadership position and pioneering new approaches in your market.'
             };
-            return descriptions[stageName] || descriptions['Foundation'];
+            return descriptions[stageName];
         }
 
-        function populateDimensions(dimensionScores) {
+        function populateDimensions(dimensionScores, overallScore) {
             const grid = document.getElementById('dimensionsGrid');
             grid.innerHTML = '';
             
@@ -2014,23 +1359,14 @@
                 const percentage = (dim.score / dim.max) * 100;
                 let status, statusClass;
                 
-                if (percentage >= 80) {
-                    status = 'Excellent';
-                    statusClass = 'excellent';
-                } else if (percentage >= 60) {
-                    status = 'Strong';
-                    statusClass = 'strong';
-                } else if (percentage >= 40) {
-                    status = 'Developing';
-                    statusClass = 'developing';
-                } else {
-                    status = 'Needs Attention';
-                    statusClass = 'needs-attention';
-                }
+                if (percentage >= 80) { status = 'Excellent'; statusClass = 'excellent'; }
+                else if (percentage >= 60) { status = 'Strong'; statusClass = 'strong'; }
+                else if (percentage >= 40) { status = 'Developing'; statusClass = 'developing'; }
+                else { status = 'Needs Attention'; statusClass = 'needs-attention'; }
                 
                 const action = getDimensionAction(dim.name, status);
                 
-                const card = `
+                grid.innerHTML += `
                     <div class="dimension-card ${statusClass}">
                         <div class="dimension-header">
                             <div class="dimension-name">${dim.name}</div>
@@ -2040,80 +1376,64 @@
                         <div class="dimension-action">${action}</div>
                     </div>
                 `;
-                grid.innerHTML += card;
             });
         }
 
         function getDimensionAction(dimensionName, status) {
             const actions = {
                 'Brand Awareness & Positioning': {
-                    'Needs Attention': 'Define your unique value proposition in one clear sentence and ensure your entire team can articulate it.',
-                    'Developing': 'Document your brand guidelines and create consistent messaging across all touchpoints.',
-                    'Strong': 'Amplify your differentiation through consistent storytelling and strategic positioning.',
-                    'Excellent': 'Leverage your strong brand to command premium pricing and attract ideal clients.'
+                    'Needs Attention': 'Define your unique value proposition in one clear sentence.',
+                    'Developing': 'Document brand guidelines and create consistent messaging.',
+                    'Strong': 'Amplify your differentiation through strategic positioning.',
+                    'Excellent': 'Leverage your strong brand to command premium pricing.'
                 },
-                'Digital Presence & First Impressions': {
-                    'Needs Attention': 'Set up Google Analytics and implement a system to respond to all inquiries within 4 hours.',
-                    'Developing': 'Optimize your website conversion rate and establish a content calendar for social media.',
-                    'Strong': 'Test and refine your conversion funnel while expanding your organic search presence.',
-                    'Excellent': 'Continue A/B testing and maintain your competitive edge in digital user experience.'
-                },
-                'Local Marketing & Visibility': {
-                    'Needs Attention': 'Claim and fully optimize your Google Business Profile with photos, posts, and complete information.',
-                    'Developing': 'Implement a systematic review request process and respond to all reviews within 48 hours.',
-                    'Strong': 'Scale your review generation and explore local sponsorship and community involvement opportunities.',
-                    'Excellent': 'Maintain your strong local presence and consider expanding into adjacent markets.'
+                'Online Presence & Local Visibility': {
+                    'Needs Attention': 'Claim and optimize your Google Business Profile today.',
+                    'Developing': 'Implement a systematic review request process.',
+                    'Strong': 'Scale your review generation and explore local sponsorships.',
+                    'Excellent': 'Maintain your strong local presence and expand markets.'
                 },
                 'Thought Leadership & Content': {
-                    'Needs Attention': 'Start publishing one piece of original content per month showcasing your expertise.',
-                    'Developing': 'Increase content frequency to weekly and actively collect client testimonials.',
-                    'Strong': 'Pursue speaking opportunities and media features to amplify your expertise.',
-                    'Excellent': 'Continue leading industry conversations and mentor others to cement your authority.'
+                    'Needs Attention': 'Start publishing one piece of original content per month.',
+                    'Developing': 'Increase content frequency and actively collect testimonials.',
+                    'Strong': 'Pursue speaking opportunities and media features.',
+                    'Excellent': 'Continue leading industry conversations.'
                 },
                 'Lead Generation & Acquisition': {
-                    'Needs Attention': 'Implement a basic CRM and document your lead-to-client conversion process.',
-                    'Developing': 'Analyze your conversion funnel to identify and fix the biggest drop-off points.',
-                    'Strong': 'Optimize your highest-performing channels and test new lead generation sources.',
-                    'Excellent': 'Scale your proven systems and maintain your competitive conversion rates.'
+                    'Needs Attention': 'Implement a basic CRM and document your conversion process.',
+                    'Developing': 'Analyze your funnel to identify and fix drop-off points.',
+                    'Strong': 'Optimize your highest-performing channels.',
+                    'Excellent': 'Scale your proven systems.'
                 },
                 'Client Experience & Retention': {
-                    'Needs Attention': 'Create a 90-day client check-in calendar and track every client\'s referral source.',
-                    'Developing': 'Build systematic follow-up processes and establish 5-10 referral partner relationships.',
-                    'Strong': 'Implement client lifetime value tracking and advanced referral incentive programs.',
-                    'Excellent': 'Leverage your strong retention to create case studies and expand referral networks.'
+                    'Needs Attention': 'Create a 90-day client check-in calendar.',
+                    'Developing': 'Build systematic follow-up processes.',
+                    'Strong': 'Implement client lifetime value tracking.',
+                    'Excellent': 'Create case studies and expand referral networks.'
                 },
-                'Attribution & Analytics': {
-                    'Needs Attention': 'Start asking every new client "How did you find us?" and record the answer.',
-                    'Developing': 'Implement systematic client source tracking and monthly analytics reviews.',
-                    'Strong': 'Calculate ROI for each marketing channel and eliminate underperforming activities.',
-                    'Excellent': 'Use predictive analytics to forecast pipeline and optimize budget allocation.'
-                },
-                'Marketing Infrastructure & Efficiency': {
-                    'Needs Attention': 'Set a monthly marketing budget and implement basic email automation for new leads.',
-                    'Developing': 'Integrate your marketing tools with your practice management system.',
-                    'Strong': 'Build sophisticated automation across multiple touchpoints and channels.',
-                    'Excellent': 'Continuously optimize your tech stack and explore AI-powered marketing tools.'
+                'Systems & Measurement': {
+                    'Needs Attention': 'Start asking every new client "How did you find us?"',
+                    'Developing': 'Implement systematic source tracking.',
+                    'Strong': 'Calculate ROI for each marketing channel.',
+                    'Excellent': 'Use predictive analytics to optimize budget.'
                 }
             };
-            
             return actions[dimensionName]?.[status] || 'Continue building this area systematically.';
         }
 
         function populatePriorities(dimensionScores, stageName) {
-            // Find the 3 dimensions with the lowest percentage scores
-            const scoredDimensions = dimensionScores.map(dim => ({
-                ...dim,
-                percentage: (dim.score / dim.max) * 100
+            const scored = dimensionScores.map(d => ({
+                ...d,
+                percentage: (d.score / d.max) * 100
             })).sort((a, b) => a.percentage - b.percentage);
             
-            const top3 = scoredDimensions.slice(0, 3);
-            
+            const top3 = scored.slice(0, 3);
             const prioritiesList = document.getElementById('prioritiesList');
             prioritiesList.innerHTML = '';
             
             top3.forEach((dim, index) => {
-                const priority = getPriorityContent(dim.name, stageName);
-                const html = `
+                const priority = getPriorityContent(dim.name);
+                prioritiesList.innerHTML += `
                     <div class="priority-item">
                         <h4 class="priority-title">
                             <span class="priority-number">${index + 1}</span>
@@ -2131,55 +1451,41 @@
                         </div>
                     </div>
                 `;
-                prioritiesList.innerHTML += html;
             });
         }
 
-        function getPriorityContent(dimensionName, stageName) {
-            // Simplified priority content based on dimension
+        function getPriorityContent(dimensionName) {
             const priorities = {
                 'Brand Awareness & Positioning': {
-                    why: 'Without clear differentiation, you compete solely on price and familiarity. Strong positioning commands premium rates and attracts ideal clients.',
-                    action: 'Write your unique value proposition in one sentence and test it with 3 trusted clients this week.'
+                    why: 'Without clear differentiation, you compete solely on price. Strong positioning commands premium rates and attracts ideal clients.',
+                    action: 'Write your unique value proposition in one sentence and test it with 3 clients this week.'
                 },
-                'Digital Presence & First Impressions': {
-                    why: 'Your website is often the first impression. Poor conversion rates mean you\'re losing qualified prospects who are actively seeking your services.',
-                    action: 'Set up Google Analytics today and implement a 1-hour response time goal for all web inquiries.'
-                },
-                'Local Marketing & Visibility': {
-                    why: 'Most legal services are still local. Without strong local visibility, you\'re invisible to nearby prospects searching for attorneys.',
-                    action: 'Claim and fully complete your Google Business Profile today, including photos and your first post.'
+                'Online Presence & Local Visibility': {
+                    why: 'Your website and local listings are often the first impression. Poor visibility means losing qualified prospects.',
+                    action: 'Claim and fully complete your Google Business Profile today, including photos.'
                 },
                 'Thought Leadership & Content': {
                     why: 'Prospects buy from trusted experts. Consistent thought leadership builds trust before the first conversation.',
-                    action: 'Publish one article this week on a common client question in your practice area.'
+                    action: 'Publish one article this week on a common client question.'
                 },
                 'Lead Generation & Acquisition': {
-                    why: 'Unpredictable pipelines create feast-or-famine stress. Systematic lead generation enables sustainable growth and better planning.',
-                    action: 'Document your current lead-to-client process in writing this week to identify gaps.'
+                    why: 'Unpredictable pipelines create feast-or-famine stress. Systematic lead generation enables sustainable growth.',
+                    action: 'Document your current lead-to-client process in writing this week.'
                 },
                 'Client Experience & Retention': {
-                    why: 'Acquiring new clients costs 5-7x more than retaining existing ones. Past clients are your best source of referrals and repeat business.',
-                    action: 'Schedule 90-day check-ins for your 5 most recent clients and ask "What else is keeping you up at night?"'
+                    why: 'Acquiring new clients costs 5-7x more than retaining existing ones. Past clients are your best referral source.',
+                    action: 'Schedule 90-day check-ins for your 5 most recent clients this week.'
                 },
-                'Attribution & Analytics': {
-                    why: 'You can\'t optimize what you don\'t measure. Without attribution data, you\'re guessing which marketing actually works.',
-                    action: 'Create a simple spreadsheet and track the source of your next 10 client consultations.'
-                },
-                'Marketing Infrastructure & Efficiency': {
-                    why: 'Manual marketing processes don\'t scale and create bottlenecks. Automation frees your time for higher-value activities.',
-                    action: 'Set up one automated email sequence for new leads this week (even just 2-3 emails).'
+                'Systems & Measurement': {
+                    why: 'You can\'t optimize what you don\'t measure. Without attribution data, you\'re guessing which marketing works.',
+                    action: 'Create a simple spreadsheet and track the source of your next 10 consultations.'
                 }
             };
-            
-            return priorities[dimensionName] || {
-                why: 'This area represents a significant opportunity for systematic improvement in your marketing.',
-                action: 'Focus on building consistent processes and tracking in this dimension.'
-            };
+            return priorities[dimensionName] || { why: 'This area represents a significant opportunity for improvement.', action: 'Focus on building consistent processes.' };
         }
 
         function downloadResults() {
-            alert('PDF download functionality would be implemented with a backend service to generate the PDF report.');
+            alert('PDF download functionality would be implemented with a backend service.');
         }
     </script>
 </body>
