@@ -1503,6 +1503,15 @@
             document.getElementById(input.id + '_value').textContent = `${value} - ${label}`;
         }
 
+        // Add scroll trigger when range slider is released
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('input[type="range"]').forEach(slider => {
+                slider.addEventListener('change', function() {
+                    scrollToNextQuestion(this);
+                });
+            });
+        });
+
         function updateOptionStyle(input) {
             document.querySelectorAll(`input[name="${input.name}"]`).forEach(r => {
                 r.closest('.option').classList.remove('selected');
@@ -1511,10 +1520,27 @@
                 input.closest('.option').classList.add('selected');
                 // Remove unanswered highlighting from this question
                 input.closest('.question').classList.remove('unanswered');
+                
+                // Auto-scroll to next question
+                scrollToNextQuestion(input);
             }
             
             // Hide validation error when user answers a question
             document.getElementById('validationError').classList.remove('visible');
+        }
+
+        function scrollToNextQuestion(input) {
+            const currentQuestion = input.closest('.question');
+            const allQuestionsInSection = Array.from(currentQuestion.closest('.section').querySelectorAll('.question'));
+            const currentIndex = allQuestionsInSection.indexOf(currentQuestion);
+            
+            // If there's a next question in this section, scroll to it
+            if (currentIndex < allQuestionsInSection.length - 1) {
+                const nextQuestion = allQuestionsInSection[currentIndex + 1];
+                setTimeout(() => {
+                    nextQuestion.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
         }
 
         function calculateAndShowResults() {
