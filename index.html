@@ -35,6 +35,11 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: padding 0.3s ease;
+        }
+
+        body.assessment-started {
+            padding-top: 2rem;
         }
 
         h1, h2, h3, h4 {
@@ -53,21 +58,23 @@
         .hero {
             text-align: center;
             padding: 4rem 2rem;
-            background: var(--primary);
-            color: white;
+            background: #F8FAFC;
+            color: var(--text-dark);
             position: relative;
             overflow: hidden;
+            border-bottom: 3px solid transparent;
+            border-image: var(--gradient-vibrant) 1;
+            border-image-slice: 1;
         }
 
-        .hero::before {
+        .hero::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
+            height: 3px;
+            background: var(--gradient-vibrant);
         }
 
         .hero-content {
@@ -75,8 +82,14 @@
             z-index: 1;
         }
 
+        .hero-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.75rem;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
         }
@@ -85,7 +98,7 @@
             font-size: 1.25rem;
             max-width: 700px;
             margin: 0 auto 2rem;
-            opacity: 0.95;
+            color: var(--text-medium);
         }
 
         .hero-stats {
@@ -104,12 +117,15 @@
             font-size: 2rem;
             font-weight: 700;
             font-family: 'Outfit', sans-serif;
-            color: white;
+            background: var(--gradient-vibrant);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .stat-label {
             font-size: 0.875rem;
-            opacity: 0.9;
+            color: var(--text-medium);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -124,6 +140,11 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.06);
             position: relative;
             z-index: 2;
+            transition: margin 0.3s ease;
+        }
+
+        .assessment-card.assessment-active {
+            margin-top: 2rem;
         }
 
         .intro-section {
@@ -726,6 +747,10 @@
                 font-size: 2.5rem;
             }
 
+            .hero-logo {
+                width: 150px;
+            }
+
             .hero-stats {
                 gap: 2rem;
             }
@@ -755,8 +780,15 @@
 </head>
 <body>
     <!-- Hero Section -->
-    <div class="hero">
+    <div class="hero" id="hero">
         <div class="hero-content">
+            <svg class="hero-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 370 104">
+                <g transform="scale(1) translate(10, 10)">
+                    <g transform="matrix(4.051863270458994,0,0,4.051863270458994,-7.293353693618292,-18.7196078458216)" fill="#000">
+                        <path d="M12.92 10.52 c0 3.04 -2.36 5.5 -5.28 5.52 l-3.6 0 l0 3.96 l-2.24 0 l0 -15 l5.84 0 c2.92 0.02 5.28 2.48 5.28 5.52 z M7.6 14.2 c1.72 0 3.1 -1.66 3.1 -3.68 s-1.38 -3.68 -3.1 -3.68 l-3.56 0 l0 7.36 l3.56 0 z M17.68 10.12 l0 9.88 l-2.06 0 l0 -9.88 l2.06 0 z M17.78 6.5 c0 0.64 -0.5 1.14 -1.14 1.14 c-0.62 0 -1.12 -0.5 -1.12 -1.14 c0 -0.62 0.5 -1.12 1.12 -1.12 c0.64 0 1.14 0.5 1.14 1.12 z M25.320000000000004 11.64 c-1.7 0 -3.08 1.42 -3.08 3.44 c0 2 1.38 3.44 3.08 3.44 s3.08 -1.44 3.08 -3.44 c0 -2.02 -1.38 -3.44 -3.08 -3.44 z M25.320000000000004 9.94 c2.84 0 5.14 2.2 5.14 5.14 s-2.3 5.12 -5.14 5.12 s-5.14 -2.18 -5.14 -5.12 s2.3 -5.14 5.14 -5.14 z M41.8 14.3 l0 5.7 l-2.06 0 l0 -5.5 c0 -2 -0.62 -2.88 -2.32 -2.88 c-1.92 0 -2.7 1.34 -2.7 3.08 l0 5.3 l-2.06 0 l0 -9.88 l2.06 0 l0 1.6 c0.28 -0.88 1.52 -1.68 2.7 -1.76 c2.68 -0.2 4.38 1.1 4.38 4.34 z M53.86 15.08 l0 0.74 l-7.78 0 c0 1.82 1.74 2.7 3.02 2.7 c0.94 0 1.98 -0.5 2.54 -1.3 l1.42 1.28 c-0.66 0.9 -1.74 1.7 -3.96 1.7 c-3.2 0 -5.16 -2.18 -5.16 -5.12 s1.9 -5.14 4.96 -5.14 s4.46 1.7 4.88 4.18 c0.06 0.32 0.08 0.64 0.08 0.96 z M46.120000000000005 14.120000000000001 l5.58 0 c0 -1.6 -1.28 -2.48 -2.8 -2.48 s-2.78 1.02 -2.78 2.48 z M65.18 15.08 l0 0.74 l-7.78 0 c0 1.82 1.74 2.7 3.02 2.7 c0.94 0 1.98 -0.5 2.54 -1.3 l1.42 1.28 c-0.66 0.9 -1.74 1.7 -3.96 1.7 c-3.2 0 -5.16 -2.18 -5.16 -5.12 s1.9 -5.14 4.96 -5.14 s4.46 1.7 4.88 4.18 c0.06 0.32 0.08 0.64 0.08 0.96 z M57.440000000000005 14.120000000000001 l5.58 0 c0 -1.6 -1.28 -2.48 -2.8 -2.48 s-2.78 1.02 -2.78 2.48 z M73.12 10.24 l-0.44 1.62 c-0.14 -0.08 -0.58 -0.22 -0.94 -0.22 c-1.7 0 -2.5 1.62 -2.5 3.62 l0 4.74 l-2.06 0 l0 -9.88 l2.06 0 l0 1.4 c0.24 -0.92 1.3 -1.58 2.48 -1.58 c0.54 0 1.12 0.14 1.4 0.3 z M76.60000000000001 4.619999999999999 l0 15.38 l-2.08 0 l0 -15.38 l2.08 0 z M88.18 10.12 c0 0 -2.5 5.92 -4.16 9.88 c-1.4 3.32 -2.5 5.32 -4.36 5.32 c-0.58 0 -1.32 -0.28 -1.86 -0.6 l0.62 -1.8 c0.16 0.14 0.52 0.34 0.76 0.4 c1.54 0.44 2.5 -2.78 3.16 -4.36 l-3.74 -8.84 l2.08 0 l2.72 6.48 l2.7 -6.48 l2.08 0 z"/>
+                    </g>
+                </g>
+            </svg>
             <h1>Marketing Maturity Assessment</h1>
             <p>Discover where your law firm stands and get a personalized roadmap for systematic growth</p>
             <div class="hero-stats">
@@ -815,6 +847,150 @@
 
         <!-- Assessment Sections -->
         <div id="assessmentForm">
+            <!-- Section 0: Firm Profile -->
+            <div class="section" id="section0">
+                <div class="section-header">
+                    <h3 class="section-title">About Your Firm</h3>
+                    <p class="section-description">Help us understand your firm so we can provide more relevant insights</p>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">What is your primary practice area?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q0_1" value="personal-injury" onchange="updateOptionStyle(this)">
+                            <span>Personal Injury</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_1" value="family-law" onchange="updateOptionStyle(this)">
+                            <span>Family Law</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_1" value="corporate" onchange="updateOptionStyle(this)">
+                            <span>Corporate/Business Law</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_1" value="criminal" onchange="updateOptionStyle(this)">
+                            <span>Criminal Defense</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_1" value="estate" onchange="updateOptionStyle(this)">
+                            <span>Estate Planning</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_1" value="real-estate" onchange="updateOptionStyle(this)">
+                            <span>Real Estate</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_1" value="immigration" onchange="updateOptionStyle(this)">
+                            <span>Immigration</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_1" value="other" onchange="updateOptionStyle(this)">
+                            <span>Other</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">How many attorneys work at your firm?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q0_2" value="solo" onchange="updateOptionStyle(this)">
+                            <span>Just me (solo practitioner)</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_2" value="2-5" onchange="updateOptionStyle(this)">
+                            <span>2-5 attorneys</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_2" value="6-10" onchange="updateOptionStyle(this)">
+                            <span>6-10 attorneys</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_2" value="11-25" onchange="updateOptionStyle(this)">
+                            <span>11-25 attorneys</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_2" value="26+" onchange="updateOptionStyle(this)">
+                            <span>26+ attorneys</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">How many non-attorney staff do you have?</label>
+                    <p class="question-help">Paralegals, assistants, administrative staff, etc.</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q0_3" value="0" onchange="updateOptionStyle(this)">
+                            <span>None</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_3" value="1-3" onchange="updateOptionStyle(this)">
+                            <span>1-3 staff</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_3" value="4-10" onchange="updateOptionStyle(this)">
+                            <span>4-10 staff</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_3" value="11+" onchange="updateOptionStyle(this)">
+                            <span>11+ staff</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Who currently handles your marketing?</label>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q0_4" value="none" onchange="updateOptionStyle(this)">
+                            <span>No one - we don't have active marketing</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_4" value="partner" onchange="updateOptionStyle(this)">
+                            <span>One of the attorneys handles it</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_4" value="staff" onchange="updateOptionStyle(this)">
+                            <span>Dedicated in-house marketing person</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_4" value="agency" onchange="updateOptionStyle(this)">
+                            <span>External agency or consultant</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_4" value="combination" onchange="updateOptionStyle(this)">
+                            <span>Combination of the above</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <label class="question-label">Where is your firm located?</label>
+                    <p class="question-help">Primary office location</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q0_5" value="major-metro" onchange="updateOptionStyle(this)">
+                            <span>Major metropolitan area (top 20 US cities)</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_5" value="mid-size" onchange="updateOptionStyle(this)">
+                            <span>Mid-size city</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_5" value="suburban" onchange="updateOptionStyle(this)">
+                            <span>Suburban area</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q0_5" value="small-town" onchange="updateOptionStyle(this)">
+                            <span>Small town or rural</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
             <!-- Section 1: Brand Awareness & Positioning -->
             <div class="section" id="section1">
                 <div class="section-header">
@@ -855,7 +1031,7 @@
                         </label>
                         <label class="option">
                             <input type="radio" name="q1_2" value="0" onchange="updateOptionStyle(this)">
-                            <span>No, we compete primarily on service quality</span>
+                            <span>No / I don't know</span>
                         </label>
                     </div>
                 </div>
@@ -881,7 +1057,7 @@
                         </label>
                         <label class="option">
                             <input type="radio" name="q1_3" value="0" onchange="updateOptionStyle(this)">
-                            <span>We're not sure</span>
+                            <span>I don't know</span>
                         </label>
                     </div>
                 </div>
@@ -909,7 +1085,7 @@
                 </div>
             </div>
 
-            <!-- Section 2: Digital Presence & First Impressions -->
+            <!-- Section 2: Online Presence & Local Visibility -->
             <div class="section" id="section2">
                 <div class="section-header">
                     <h3 class="section-title">Digital Presence & First Impressions</h3>
@@ -1579,19 +1755,18 @@
     <script>
         // Assessment data
         let currentSection = 0;
-        const totalSections = 8;
+        const totalSections = 7;
         let responses = {};
         
         // Section configurations
         const sections = [
+            { id: 'section0', name: 'Firm Profile', maxPoints: 0 }, // Not scored
             { id: 'section1', name: 'Brand Awareness & Positioning', maxPoints: 15 },
-            { id: 'section2', name: 'Digital Presence & First Impressions', maxPoints: 15 },
-            { id: 'section3', name: 'Local Marketing & Visibility', maxPoints: 15 },
-            { id: 'section4', name: 'Thought Leadership & Content', maxPoints: 12 },
-            { id: 'section5', name: 'Lead Generation & Acquisition', maxPoints: 15 },
-            { id: 'section6', name: 'Client Experience & Retention', maxPoints: 16 },
-            { id: 'section7', name: 'Attribution & Analytics', maxPoints: 10 },
-            { id: 'section8', name: 'Marketing Infrastructure & Efficiency', maxPoints: 10 }
+            { id: 'section2', name: 'Online Presence & Local Visibility', maxPoints: 20 },
+            { id: 'section3', name: 'Thought Leadership & Content', maxPoints: 12 },
+            { id: 'section4', name: 'Lead Generation & Acquisition', maxPoints: 15 },
+            { id: 'section5', name: 'Client Experience & Retention', maxPoints: 16 },
+            { id: 'section6', name: 'Systems & Measurement', maxPoints: 14 }
         ];
 
         // Stage definitions
@@ -1605,6 +1780,9 @@
 
         function startAssessment() {
             document.getElementById('intro').classList.add('hidden');
+            document.getElementById('hero').classList.add('hidden');
+            document.body.classList.add('assessment-started');
+            document.querySelector('.assessment-card').classList.add('assessment-active');
             document.getElementById('progress').classList.remove('hidden');
             document.getElementById('navButtons').classList.remove('hidden');
             showSection(0);
